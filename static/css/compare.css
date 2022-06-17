@@ -112,7 +112,7 @@
   }
   .column {
     flex: 1;
-    border: 1px solid #ededed;
+    border: 1px solid #aeaeae;
     padding: 10px;
   }
   @media screen and (max-width: 980px) {
@@ -158,7 +158,6 @@
       float: right;
       margin-top: 3px;
       border: none;
-      background-color: white;
   }
   .close-deal {
     float: right;
@@ -174,4 +173,13 @@
   .assured {
     height: 24px;
     width: 70px;
+  }
+  .deal {
+    padding: 0;
+  }
+  .deal-data hr {
+    margin: 0 10px;
+  }
+  .store-logo {
+    background-color: #efefef;
   }

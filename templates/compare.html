@@ -12,7 +12,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{% static 'css/compare.css' %}">
-    <link rel="stylesheet" href="{% static 'css/compare.css' %}">
+    <link rel="stylesheet" href="{% static 'css/modal.css' %}">
 </head>
 
 <body>
@@ -84,8 +84,189 @@
                 <div class="col-4 column deal">
                     <div class="store-logo">
                         <img src="{% static 'images/Amazon logo.png' %}" alt="amazon" class="amazon">
-                        <a href=""><img src="{% static 'images/change deal.svg' %}" alt="" class="change-deal"></a>
-                        <!-- <button id="myBtn" class="change-deal"><img src="Assets/images/change deal.svg" alt=""></button> -->
+                        <button id="myBtn" class="change-deal"><img src="{% static 'images/change deal.svg' %}" alt=""></button>
+                        <!-- The Modal -->
+                        <div id="myModal" class="modal-1">
+
+                            <!-- Modal content -->
+                            <div class="modal-content-1">
+                                <div class="modal-header-1">
+                                    <div class="row">
+                                        <div class="" style="margin-top: 30px; margin-left: 30px">
+                                            <img src="{% static 'images/Amazon logo.png' %}" alt="" class="amazon mt-1"><span
+                                                style="font-size: 25px"> - Change Deal</span>
+                                        </div>
+                                        <div class="search-change-deal">
+                                            <form action="">
+                                                <input type="text" name="" id="" class="search-input"
+                                                    placeholder="Search the URL">
+                                                <span class="close">&times;</span>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <hr color="black">
+                                </div>
+                                <div class="modal-body-1">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="card mb-3" style="max-width: 540px;">
+                                                <div class="row no-gutters">
+                                                    <div class="col-md-4">
+                                                        <img src="{% static 'images/img1.jpg' %}" class="card-img" alt="...">
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="card-body">
+                                                            <p class="product-title">Amazon Brand - Symbol Men's Regular
+                                                                Polo Shirt</p>
+                                                            <div class="btn-group product-ratings"
+                                                                style="border-color: red">
+                                                                <button type="button" class="btn btn-light btn-sm">3.5
+                                                                    <span class="fa fa-star"
+                                                                        style="color: #558D02"></span></button>
+                                                                <button type="button" class="btn btn-light btn-sm">44
+                                                                    Ratings</button>
+                                                            </div>
+                                                            <p class="mt-2">
+                                                                <s class="product-mrp">M.R.P: ₹1,199 </s>
+                                                                <span class="product-price"
+                                                                    style="color: maroon; font-size: 20px;">₹540.00</span>&nbsp;
+                                                                <span class="product-discount"
+                                                                    style="color: #558D02">(55% off)</span>
+                                                            </p>
+                                                            <img src="{% static 'images/prime 1.png' %}" alt=""
+                                                                class="prime"><br><br>
+                                                            <button type="button" class="btn btn-primary"
+                                                                style="color: white; background-color: #558D02; border-color: #558D02">Compare
+                                                                Deal</button>
+                                                            <button type="button" class="btn btn-outline-info"
+                                                                style="color: #558D02; border-color: #558D02">View on
+                                                                Amazon</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="card mb-3" style="max-width: 540px;">
+                                                <div class="row no-gutters">
+                                                    <div class="col-md-4">
+                                                        <img src="{% static 'images/img1.jpg' %}" class="card-img" alt="...">
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="card-body">
+                                                            <p class="product-title">Amazon Brand - Symbol Men's Regular
+                                                                Polo Shirt</p>
+                                                            <div class="btn-group product-ratings"
+                                                                style="border-color: red">
+                                                                <button type="button" class="btn btn-light btn-sm">3.5
+                                                                    <span class="fa fa-star"
+                                                                        style="color: #558D02"></span></button>
+                                                                <button type="button" class="btn btn-light btn-sm">44
+                                                                    Ratings</button>
+                                                            </div>
+                                                            <p class="mt-2">
+                                                                <s class="product-mrp">M.R.P: ₹1,199 </s>
+                                                                <span class="product-price"
+                                                                    style="color: maroon; font-size: 20px;">₹540.00</span>&nbsp;
+                                                                <span class="product-discount"
+                                                                    style="color: #558D02">(55% off)</span>
+                                                            </p>
+                                                            <img src="{% static 'images/prime 1.png' %}" alt=""
+                                                                class="prime"><br><br>
+                                                            <button type="button" class="btn btn-primary"
+                                                                style="color: white; background-color: #558D02; border-color: #558D02">Compare
+                                                                Deal</button>
+                                                            <button type="button" class="btn btn-outline-info"
+                                                                style="color: #558D02; border-color: #558D02">View on
+                                                                Amazon</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="card mb-3" style="max-width: 540px;">
+                                                <div class="row no-gutters">
+                                                    <div class="col-md-4">
+                                                        <img src="{% static 'images/img1.jpg' %}" class="card-img" alt="...">
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="card-body">
+                                                            <p class="product-title">Amazon Brand - Symbol Men's Regular
+                                                                Polo Shirt</p>
+                                                            <div class="btn-group product-ratings"
+                                                                style="border-color: red">
+                                                                <button type="button" class="btn btn-light btn-sm">3.5
+                                                                    <span class="fa fa-star"
+                                                                        style="color: #558D02"></span></button>
+                                                                <button type="button" class="btn btn-light btn-sm">44
+                                                                    Ratings</button>
+                                                            </div>
+                                                            <p class="mt-2">
+                                                                <s class="product-mrp">M.R.P: ₹1,199 </s>
+                                                                <span class="product-price"
+                                                                    style="color: maroon; font-size: 20px;">₹540.00</span>&nbsp;
+                                                                <span class="product-discount"
+                                                                    style="color: #558D02">(55% off)</span>
+                                                            </p>
+                                                            <img src="{% static 'images/img1.jpg' %}" alt=""
+                                                                class="prime"><br><br>
+                                                            <button type="button" class="btn btn-primary"
+                                                                style="color: white; background-color: #558D02; border-color: #558D02">Compare
+                                                                Deal</button>
+                                                            <button type="button" class="btn btn-outline-info"
+                                                                style="color: #558D02; border-color: #558D02">View on
+                                                                Amazon</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="card mb-3" style="max-width: 540px;">
+                                                <div class="row no-gutters">
+                                                    <div class="col-md-4">
+                                                        <img src="{% static 'images/img1.jpg' %}" class="card-img" alt="...">
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="card-body">
+                                                            <p class="product-title">Amazon Brand - Symbol Men's Regular
+                                                                Polo Shirt</p>
+                                                            <div class="btn-group product-ratings"
+                                                                style="border-color: red">
+                                                                <button type="button" class="btn btn-light btn-sm">3.5
+                                                                    <span class="fa fa-star"
+                                                                        style="color: #558D02"></span></button>
+                                                                <button type="button" class="btn btn-light btn-sm">44
+                                                                    Ratings</button>
+                                                            </div>
+                                                            <p class="mt-2">
+                                                                <s class="product-mrp">M.R.P: ₹1,199 </s>
+                                                                <span class="product-price"
+                                                                    style="color: maroon; font-size: 20px;">₹540.00</span>&nbsp;
+                                                                <span class="product-discount"
+                                                                    style="color: #558D02">(55% off)</span>
+                                                            </p>
+                                                            <img src="{% static 'images/img1.jpg' %}" alt=""
+                                                                class="prime"><br><br>
+                                                            <button type="button" class="btn btn-primary"
+                                                                style="color: white; background-color: #558D02; border-color: #558D02">Compare
+                                                                Deal</button>
+                                                            <button type="button" class="btn btn-outline-info"
+                                                                style="color: #558D02; border-color: #558D02">View on
+                                                                Amazon</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                         <!-- <a href=""><i class="fa fa-close close-deal remove" style="font-size: 24px;"></i></a> -->
                     </div>
                     <div class="deal-data">
