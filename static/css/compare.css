@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    background-color: #fafafa;
+    font-family: "Lato", sans-serif;
+  }
+  .navbar-top {
+      box-shadow: 0 0.5rem 1rem -0.9rem rgba(0, 0, 0, 0.1);
+  }
+  /* Search bar in nav bar */
+  .microphone {
+    border-top-right-radius: 32px !important;
+    border-bottom-right-radius: 32px !important;
+    background-color: #fff;
+  }
+  .google {
+    border-top-right-radius: 32px !important;
+    border-bottom-right-radius: 32px !important;
+    background-color: #fff;
+  }
+  .search-bar {
+    border-top-left-radius: 32px !important;
+    border-bottom-left-radius: 32px !important;
+  }
+  
+  .input-group > .form-control:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    width: 480px;
+  }
+  
+  /* side nav bar */
+  .sidenav {
+    height: 100%;
+    width: 260px;
+    position: fixed;
+    z-index: 1;
+    top: 100px;
+    left: 0;
+    background-color: #fafafa;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  .sidenav a {
+    padding: 6px 6px 6px 32px;
+    text-decoration: none;
+    color: black;
+    display: block;
+  }
+  @media screen and (max-height: 450px) {
+    .sidenav {
+      padding-top: 15px;
+    }
+    .sidenav a {
+      font-size: 18px;
+    }
+  }
+  
+  /* main section */
+  .main {  
+    margin-left: 260px;
+    width: 80%;
+  }
+  
+  .price-range .form-control {
+    width: 40%;
+    height: 30px;
+    margin-left: 30px;
+  }
+  .price-range .btn-sm {
+    width: 80px;
+    height: 30px;
+    background-color: #558d02;
+    margin-left: 30px;
+  }
+  .span-it {
+    margin-left: 4.2rem!important;
+  }
+  
+  .col-heads {
+    background-color: #efefef;
+  }
+  
+  @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+  
+  body {
+    font-family: "Open Sans", sans-serif;
+    color: #666;
+  }
+  
+  /* STRUCTURE OF 3 COLUMN LAYOUT */
+  
+  .wrapper {
+    width: 100%;
+    height: 100%;
+    /* margin-top: -4px; */
+    box-sizing: border-box;
+    margin-left: 30px;
+  }
+  header {
+    padding: 0 15px;
+  }
+  .columns {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: 5px 0;
+    /* width: 1350px; */
+    height: 100%;
+  }
+  .column {
+    flex: 1;
+    border: 1px solid #ededed;
+    padding: 10px;
+  }
+  @media screen and (max-width: 980px) {
+    .columns .column {
+      margin-bottom: 5px;
+      flex-basis: 40%;
+    }
+  }
+  @media screen and (max-width: 680px) {
+    .columns .column {
+      flex-basis: 100%;
+      margin: 0 0 5px 0;
+    }
+  }
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    text-align: center;
+  }
+  .deal-display p{
+    font-size: 15px;
+  }
+  .price {
+    color: "red";
+  }
+  .deal-data {
+    margin-top: 80px;
+    margin-bottom: 137px;
+  }
+  .amazon {
+      height: 45px;
+  }
+  .flipkart {
+      height: 65px;
+      margin-top: -16px;
+  }
+  .myntra {
+      height: 45px;
+  }
+  .change-deal {
+      float: right;
+      margin-top: 3px;
+      border: none;
+      background-color: white;
+  }
+  .close-deal {
+    float: right;
+    color: black;
+  }
+  .product-offers {
+    margin-left: 30px;
+  }
+  .prime {
+    height: 22px;
+    width: 70px;
+  }
+  .assured {
+    height: 24px;
+    width: 70px;
+  }

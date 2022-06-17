@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    background-color: #fafafa;
+    font-family: "Lato", sans-serif;
+  }
+  .logo {
+      margin-top: 40px;
+  }
+  .logo img {
+      width: 280px;
+      height: 30px;
+  }
+  .search {
+      margin-top: 40px;
+  }
+  .google {
+    border-top-right-radius: 32px !important;
+    border-bottom-right-radius: 32px !important;
+    background-color: #fff;
+  }
+  .search-bar {
+    border-top-left-radius: 32px !important;
+    border-bottom-left-radius: 32px !important;
+  }
+  
+  .input-group > .form-control:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    width: 480px;
+  }
+  .deals {
+      margin-left: 100px;
+  }
+  .deal-card {
+      width: 300px;
+      height: 250px;
+      margin: 10px;
+      border-radius: 8px;
+      background-color: #fff;
+      border: 1px #e0e0e0 solid;
+  }
