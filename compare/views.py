@@ -7,14 +7,14 @@ from compare.flipkart_deals import *
 
 # Create your views here.
 
-os.environ['PATH'] += r"C:\Selenium Drivers\chromedriver_win32"
+# os.environ['PATH'] += r"C:\Selenium Drivers\chromedriver_win32"
 options = webdriver. ChromeOptions()
 options.add_argument("- incognito")
 options.add_argument("--headless")
 options.add_argument("--disable-dev-shm-usage")
 options.add_argument ("--no-sandbox")
 
-driver = webdriver.Chrome(options=options)
+driver = webdriver.Chrome(executable_path=r'E:\SmartComp\Chrome Drivers\chromedriver.exe' ,options=options)
 
 def compare(request):
     return render(request, 'compare.html')
