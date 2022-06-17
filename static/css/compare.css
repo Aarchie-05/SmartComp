@@ -29,6 +29,7 @@
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     width: 480px;
+    height: 100%;
   }
   
   /* side nav bar */
@@ -141,23 +142,26 @@
     color: "red";
   }
   .deal-data {
-    margin-top: 80px;
-    margin-bottom: 137px;
+    padding-top: 20px;
   }
   .amazon {
       height: 45px;
   }
   .flipkart {
-      height: 65px;
+      height: 67px;
       margin-top: -16px;
+      margin-bottom: -5px;
+      margin-left: 7px;
   }
   .myntra {
-      height: 45px;
+      height: 40px;
+      margin-left: 7px;
   }
   .change-deal {
       float: right;
       margin-top: 3px;
       border: none;
+      margin: 7px;
   }
   .close-deal {
     float: right;
@@ -178,8 +182,32 @@
     padding: 0;
   }
   .deal-data hr {
-    margin: 0 10px;
+    margin: 25px 10px;
   }
   .store-logo {
     background-color: #efefef;
+    padding: 8px;
+    height: 60px;
   }
+  .change-deal-btn {
+    float: right;
+    border: none;
+    margin: 7px;
+  }
+  .smartcomp-logo {
+    padding: 0;
+  }
+.input-group-prepend {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.rating-values {
+  border: 1px solid #dadada;
+  padding: 6px;
+  border-radius: 2px;
+}
+.seprator {
+  border-left: 1px solid #dadada;
+  margin: 0 4px;
+}
