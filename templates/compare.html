@@ -42,10 +42,7 @@
           }
     </style>
 </head>
-
 <body>
-    <p>{{deals2_index}}</p>
-    <p>{{deals2_len}}</p>
     <!-- NAVBAR -->
     <div class="navbar-top">
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f9f9f9;">
@@ -268,6 +265,9 @@
                                                                 <span class="rating-values">3.5 <span class="fa fa-star"
                                                                         style="color: green"></span><span
                                                                         class="seprator"></span>44 Ratings</span>
+                                                                <a href="" class="mt-2 ml-1 tt">Product Description
+                                                                    <span class="ttt">Tooltip text</span>
+                                                                </a>
                                                             </div>
                                                             <p class="mt-2">
                                                                 <s class="product-mrp">M.R.P: ₹1,199 </s>
@@ -376,6 +376,11 @@
                                                             <div class="btn-group product-ratings"
                                                                 style="border-color: red">
                                                                 <span class="rating-values">3.5 <span class="fa fa-star" style="color: green"></span><span class="seprator"></span>44 Ratings</span>
+                                                                <a href="" class="mt-2 ml-1 tt">Product Description
+                                                                    <span class="ttt">
+                                                                        {{deals2.company}}
+                                                                    </span>
+                                                                </a>
                                                             </div>
                                                             <p class="mt-2">
                                                                 <s class="product-mrp">M.R.P: {{deal.mrp}} </s>

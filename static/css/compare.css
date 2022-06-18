@@ -211,3 +211,29 @@
   border-left: 1px solid #dadada;
   margin: 0 4px;
 }
+.tt {
+  position: relative;
+  display: inline-block;
+}
+
+.tt .ttt {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  width: 120px;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tt:hover .ttt {
+  visibility: visible;
+}
