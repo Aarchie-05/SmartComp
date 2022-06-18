@@ -13,11 +13,40 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{% static 'css/compare.css' %}">
     <link rel="stylesheet" href="{% static 'css/modal.css' %}">
+
+    <style>
+        .column1 {
+            float: left;
+            width: 45%;
+            padding: 0 10px;
+            margin: 20px;
+          }
+          
+          /* Remove extra left and right margins, due to padding */
+          .row1 {margin: 0 -5px;}
+          
+          /* Clear floats after the columns */
+          .row1:after {
+            content: "";
+            display: table;
+            clear: both;
+          }
+          
+          /* Responsive columns */
+          @media screen and (max-width: 600px) {
+            .column1 {
+              width: 100%;
+              display: block;
+              margin-bottom: 20px;
+            }
+          }
+    </style>
 </head>
 
 <body>
+    <p>{{deals2_index}}</p>
+    <p>{{deals2_len}}</p>
     <!-- NAVBAR -->
-    <!-- <h1>{{ret}}</h1> -->
     <div class="navbar-top">
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f9f9f9;">
             <div class="smartcomp-logo">
@@ -38,8 +67,9 @@
                         <input type="text" class="form-control search-bar" placeholder="Search" aria-label="Username"
                             aria-describedby="basic-addon1" name="search_item">
                         <div class="input-group-prepend">
-                            <button type="submit" style="border: none; background-color: transparent;"><span class="input-group-text google" id="basic-addon1"><img
-                                src="https://img.icons8.com/search" height="18px"></span></button>
+                            <button type="submit" style="border: none; background-color: transparent;"><span
+                                    class="input-group-text google" id="basic-addon1"><img
+                                        src="https://img.icons8.com/search" height="18px"></span></button>
                         </div>
                     </div>
                 </form>
@@ -84,8 +114,9 @@
                 <div class="col-4 column deal">
                     <div class="store-logo">
                         <img src="{% static 'images/Amazon logo.png' %}" alt="amazon" class="amazon">
-                        <button id="myBtn" class="change-deal-btn"><img src="{% static 'images/change deal.svg' %}" alt=""></button>
-                        The Modal
+                        <button id="myBtn" class="change-deal-btn"><img src="{% static 'images/change deal.svg' %}"
+                                alt=""></button>
+                        <!-- The Modal -->
                         <div id="myModal" class="modal-1">
 
                             <!-- Modal content -->
@@ -93,8 +124,8 @@
                                 <div class="modal-header-1">
                                     <div class="row">
                                         <div class="" style="margin-top: 30px; margin-left: 30px">
-                                            <img src="{% static 'images/Amazon logo.png' %}" alt="" class="amazon mt-1"><span
-                                                style="font-size: 25px"> - Change Deal</span>
+                                            <img src="{% static 'images/Amazon logo.png' %}" alt=""
+                                                class="amazon mt-1"><span style="font-size: 25px"> - Change Deal</span>
                                         </div>
                                         <div class="search-change-deal">
                                             <form action="">
@@ -112,7 +143,8 @@
                                             <div class="card mb-3" style="max-width: 540px;">
                                                 <div class="row no-gutters">
                                                     <div class="col-md-4">
-                                                        <img src="{% static 'images/img1.jpg' %}" class="card-img" alt="...">
+                                                        <img src="{% static 'images/img1.jpg' %}" class="card-img"
+                                                            alt="...">
                                                     </div>
                                                     <div class="col-md-8">
                                                         <div class="card-body">
@@ -120,7 +152,9 @@
                                                                 Polo Shirt</p>
                                                             <div class="btn-group product-ratings"
                                                                 style="border-color: red">
-                                                                <span class="rating-values">3.5 <span class="fa fa-star" style="color: green"></span><span class="seprator"></span>44 Ratings</span>
+                                                                <span class="rating-values">3.5 <span class="fa fa-star"
+                                                                        style="color: green"></span><span
+                                                                        class="seprator"></span>44 Ratings</span>
                                                             </div>
                                                             <p class="mt-2">
                                                                 <s class="product-mrp">M.R.P: ₹1,199 </s>
@@ -146,7 +180,8 @@
                                             <div class="card mb-3" style="max-width: 540px;">
                                                 <div class="row no-gutters">
                                                     <div class="col-md-4">
-                                                        <img src="{% static 'images/img1.jpg' %}" class="card-img" alt="...">
+                                                        <img src="{% static 'images/img1.jpg' %}" class="card-img"
+                                                            alt="...">
                                                     </div>
                                                     <div class="col-md-8">
                                                         <div class="card-body">
@@ -154,7 +189,9 @@
                                                                 Polo Shirt</p>
                                                             <div class="btn-group product-ratings"
                                                                 style="border-color: red">
-                                                                <span class="rating-values">3.5 <span class="fa fa-star" style="color: green"></span><span class="seprator"></span>44 Ratings</span>
+                                                                <span class="rating-values">3.5 <span class="fa fa-star"
+                                                                        style="color: green"></span><span
+                                                                        class="seprator"></span>44 Ratings</span>
                                                             </div>
                                                             <p class="mt-2">
                                                                 <s class="product-mrp">M.R.P: ₹1,199 </s>
@@ -182,7 +219,8 @@
                                             <div class="card mb-3" style="max-width: 540px;">
                                                 <div class="row no-gutters">
                                                     <div class="col-md-4">
-                                                        <img src="{% static 'images/img1.jpg' %}" class="card-img" alt="...">
+                                                        <img src="{% static 'images/img1.jpg' %}" class="card-img"
+                                                            alt="...">
                                                     </div>
                                                     <div class="col-md-8">
                                                         <div class="card-body">
@@ -190,7 +228,9 @@
                                                                 Polo Shirt</p>
                                                             <div class="btn-group product-ratings"
                                                                 style="border-color: red">
-                                                                <span class="rating-values">3.5 <span class="fa fa-star" style="color: green"></span><span class="seprator"></span>44 Ratings</span>
+                                                                <span class="rating-values">3.5 <span class="fa fa-star"
+                                                                        style="color: green"></span><span
+                                                                        class="seprator"></span>44 Ratings</span>
                                                             </div>
                                                             <p class="mt-2">
                                                                 <s class="product-mrp">M.R.P: ₹1,199 </s>
@@ -216,7 +256,8 @@
                                             <div class="card mb-3" style="max-width: 540px;">
                                                 <div class="row no-gutters">
                                                     <div class="col-md-4">
-                                                        <img src="{% static 'images/img1.jpg' %}" class="card-img" alt="...">
+                                                        <img src="{% static 'images/img1.jpg' %}" class="card-img"
+                                                            alt="...">
                                                     </div>
                                                     <div class="col-md-8">
                                                         <div class="card-body">
@@ -224,7 +265,9 @@
                                                                 Polo Shirt</p>
                                                             <div class="btn-group product-ratings"
                                                                 style="border-color: red">
-                                                                <span class="rating-values">3.5 <span class="fa fa-star" style="color: green"></span><span class="seprator"></span>44 Ratings</span>
+                                                                <span class="rating-values">3.5 <span class="fa fa-star"
+                                                                        style="color: green"></span><span
+                                                                        class="seprator"></span>44 Ratings</span>
                                                             </div>
                                                             <p class="mt-2">
                                                                 <s class="product-mrp">M.R.P: ₹1,199 </s>
@@ -254,15 +297,15 @@
                         <!-- <a href=""><i class="fa fa-close close-deal remove" style="font-size: 24px;"></i></a> -->
                     </div>
                     <div class="deal-data">
-                        <img src="{% static 'images/img1.jpg' %}" alt="" class="center"
-                            height="300px">
+                        <img src="{% static 'images/img1.jpg' %}" alt="" class="center" height="300px">
                         <hr>
                         <div class="deal-display">
                             <center>
                                 <p class="product-title">Amazon Brand - Symbol Men's Regular Polo Shirt</p>
                             </center>
                             <div class="btn-group center product-ratings">
-                                <span class="rating-values">3.5 <span class="fa fa-star" style="color: green"></span><span class="seprator"></span>44 Ratings</span>
+                                <span class="rating-values">3.5 <span class="fa fa-star"
+                                        style="color: green"></span><span class="seprator"></span>44 Ratings</span>
                             </div>
                             <center>
                                 <p class="mt-2">
@@ -295,16 +338,16 @@
                 <div class="col-4 column deal">
                     <div class="store-logo">
                         <img src="{% static 'images/Flipkart logo.png' %}" alt="flipkart" class="flipkart">
-                        <button id="myBtnF" class="change-deal-btn"><img src="{% static 'images/change deal.svg' %}" alt=""></button>
+                        <button id="myBtnF" class="change-deal"><img src="{% static 'images/change deal.svg' %}"
+                                alt=""></button>
                         <!-- The Modal -->
                         <div id="myModalF" class="modal-1">
-
                             <!-- Modal content -->
                             <div class="modal-content-1">
                                 <div class="modal-header-1">
                                     <div class="row">
                                         <div class="" style="margin-top: 30px; margin-left: 30px">
-                                            <img src="{% static 'images/Flipkart logo.png' %}" alt="" class="amazon mt-1"><span
+                                            <img src="{% static 'images/Flipkart logo.png' %}" alt="" class="flipkart"><span
                                                 style="font-size: 25px"> - Change Deal</span>
                                         </div>
                                         <div class="search-change-deal">
@@ -318,162 +361,64 @@
                                     <hr color="black">
                                 </div>
                                 <div class="modal-body-1">
-                                    <div class="row">
-                                        <div class="col-6">
+                                    <div class="row1">
+                                        {% for deal in deals2 %}
+
+                                        <div class="column1">
                                             <div class="card mb-3" style="max-width: 540px;">
                                                 <div class="row no-gutters">
                                                     <div class="col-md-4">
-                                                        <img src="{% static 'images/img1.jpg' %}" class="card-img" alt="...">
+                                                        <img src="{{deal.img}}" class="card-img" alt="..." style="height: 300px">
                                                     </div>
                                                     <div class="col-md-8">
                                                         <div class="card-body">
-                                                            <p class="product-title">Amazon Brand - Symbol Men's Regular
-                                                                Polo Shirt</p>
+                                                            <p class="product-title">{{deal.title}}</p>
                                                             <div class="btn-group product-ratings"
                                                                 style="border-color: red">
                                                                 <span class="rating-values">3.5 <span class="fa fa-star" style="color: green"></span><span class="seprator"></span>44 Ratings</span>
                                                             </div>
                                                             <p class="mt-2">
-                                                                <s class="product-mrp">M.R.P: ₹1,199 </s>
+                                                                <s class="product-mrp">M.R.P: {{deal.mrp}} </s>
                                                                 <span class="product-price"
-                                                                    style="color: maroon; font-size: 20px;">₹540.00</span>&nbsp;
+                                                                    style="color: maroon; font-size: 20px;">{{deal.price}}</span>&nbsp;
                                                                 <span class="product-discount"
-                                                                    style="color: #558D02">(55% off)</span>
+                                                                    style="color: #558D02">({{deal.discount}})</span>
                                                             </p>
+                                                            {% if deal.assured %}
                                                             <img src="{% static 'images/fassured 1.png' %}" alt=""
                                                                 class="assured"><br><br>
-                                                            <button type="button" class="btn btn-primary"
+                                                            {% else %}
+                                                            <br><br><br>
+                                                            {% endif %}
+                                                            <a type="button" class="btn btn-primary"
                                                                 style="color: white; background-color: #558D02; border-color: #558D02">Compare
-                                                                Deal</button>
-                                                            <button type="button" class="btn btn-outline-info"
+                                                                Deal</a>
+                                                            <a href= "{{deal.item_link}}" type="button" class="btn btn-outline-info"
                                                                 style="color: #558D02; border-color: #558D02">View on
-                                                                Amazon</button>
+                                                                Amazon</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-6">
-                                            <div class="card mb-3" style="max-width: 540px;">
-                                                <div class="row no-gutters">
-                                                    <div class="col-md-4">
-                                                        <img src="{% static 'images/img1.jpg' %}" class="card-img" alt="...">
-                                                    </div>
-                                                    <div class="col-md-8">
-                                                        <div class="card-body">
-                                                            <p class="product-title">Amazon Brand - Symbol Men's Regular
-                                                                Polo Shirt</p>
-                                                            <div class="btn-group product-ratings"
-                                                                style="border-color: red">
-                                                                <span class="rating-values">3.5 <span class="fa fa-star" style="color: green"></span><span class="seprator"></span>44 Ratings</span>
-                                                            </div>
-                                                            <p class="mt-2">
-                                                                <s class="product-mrp">M.R.P: ₹1,199 </s>
-                                                                <span class="product-price"
-                                                                    style="color: maroon; font-size: 20px;">₹540.00</span>&nbsp;
-                                                                <span class="product-discount"
-                                                                    style="color: #558D02">(55% off)</span>
-                                                            </p>
-                                                            <img src="{% static 'images/fassured 1.png' %}" alt=""
-                                                                class="assured"><br><br>
-                                                            <button type="button" class="btn btn-primary"
-                                                                style="color: white; background-color: #558D02; border-color: #558D02">Compare
-                                                                Deal</button>
-                                                            <button type="button" class="btn btn-outline-info"
-                                                                style="color: #558D02; border-color: #558D02">View on
-                                                                Amazon</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <div class="card mb-3" style="max-width: 540px;">
-                                                <div class="row no-gutters">
-                                                    <div class="col-md-4">
-                                                        <img src="{% static 'images/img1.jpg' %}" class="card-img" alt="...">
-                                                    </div>
-                                                    <div class="col-md-8">
-                                                        <div class="card-body">
-                                                            <p class="product-title">Amazon Brand - Symbol Men's Regular
-                                                                Polo Shirt</p>
-                                                            <div class="btn-group product-ratings"
-                                                                style="border-color: red">
-                                                                <span class="rating-values">3.5 <span class="fa fa-star" style="color: green"></span><span class="seprator"></span>44 Ratings</span>
-                                                            </div>
-                                                            <p class="mt-2">
-                                                                <s class="product-mrp">M.R.P: ₹1,199 </s>
-                                                                <span class="product-price"
-                                                                    style="color: maroon; font-size: 20px;">₹540.00</span>&nbsp;
-                                                                <span class="product-discount"
-                                                                    style="color: #558D02">(55% off)</span>
-                                                            </p>
-                                                            <img src="{% static 'images/fassured 1.png' %}" alt=""
-                                                                class="assured"><br><br>
-                                                            <button type="button" class="btn btn-primary"
-                                                                style="color: white; background-color: #558D02; border-color: #558D02">Compare
-                                                                Deal</button>
-                                                            <button type="button" class="btn btn-outline-info"
-                                                                style="color: #558D02; border-color: #558D02">View on
-                                                                Amazon</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="card mb-3" style="max-width: 540px;">
-                                                <div class="row no-gutters">
-                                                    <div class="col-md-4">
-                                                        <img src="{% static 'images/img1.jpg' %}" class="card-img" alt="...">
-                                                    </div>
-                                                    <div class="col-md-8">
-                                                        <div class="card-body">
-                                                            <p class="product-title">Amazon Brand - Symbol Men's Regular
-                                                                Polo Shirt</p>
-                                                            <div class="btn-group product-ratings"
-                                                                style="border-color: red">
-                                                                <span class="rating-values">3.5 <span class="fa fa-star" style="color: green"></span><span class="seprator"></span>44 Ratings</span>
-                                                            </div>
-                                                            <p class="mt-2">
-                                                                <s class="product-mrp">M.R.P: ₹1,199 </s>
-                                                                <span class="product-price"
-                                                                    style="color: maroon; font-size: 20px;">₹540.00</span>&nbsp;
-                                                                <span class="product-discount"
-                                                                    style="color: #558D02">(55% off)</span>
-                                                            </p>
-                                                            <img src="{% static 'images/fassured 1.png' %}" alt=""
-                                                                class="assured"><br><br>
-                                                            <button type="button" class="btn btn-primary"
-                                                                style="color: white; background-color: #558D02; border-color: #558D02">Compare
-                                                                Deal</button>
-                                                            <button type="button" class="btn btn-outline-info"
-                                                                style="color: #558D02; border-color: #558D02">View on
-                                                                Amazon</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        {% endfor %}
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                         <!-- <a href=""><i class="fa fa-close close-deal remove" style="font-size: 24px;"></i></a> -->
                     </div>
                     <div class="deal-data">
-                        <img src="{{deal2.img}}"
-                            alt="" class="center" height="300px">
+                        <img src="{{deal2.img}}" alt="" class="center" height="300px">
                         <hr>
                         <div class="deal-display">
                             <center>
                                 <p class="product-title">{{deal2.title}}</p>
                             </center>
                             <div class="center product-ratings" style="border-color: red">
-                                <span class="rating-values">{{deal2.rating}} <span class="fa fa-star" style="color: green"></span><span class="seprator"></span>{{deal2.no_of_ratings}} Ratings</span>
+                                <span class="rating-values">{{deal2.rating}} <span class="fa fa-star"
+                                        style="color: green"></span><span
+                                        class="seprator"></span>{{deal2.no_of_ratings}} Ratings</span>
                             </div>
                             <center>
                                 <p class="mt-2">
@@ -495,14 +440,6 @@
                                     {% for offer in deal2.offers %}
                                     <li>{{offer}}</li>
                                     {% endfor %}
-                                    <!-- <li>Partner OfferBuy From Fashion Now & Get Extra 10% Off Upto ₹100 on Home Products
-                                        from 20th June to 30th June</li>
-                                    <li>Bank Offer10% off on Axis Bank Credit Cards, up to ₹1250. On orders of ₹1000 and
-                                        above</li>
-                                    <li>Bank Offer10% off on Flipkart Axis Bank Co Brand Card, up to ₹1250. On orders of
-                                        ₹1000 and above</li>
-                                    <li>Bank Offer10% off on Axis Bank Debit Cards, up to ₹1250. On orders of ₹1000 and
-                                        above </li> -->
                                 </ul>
                             </div>
                         </div>
@@ -524,7 +461,8 @@
                                 <p class="product-title">Men Fluorescent Green Printed Sustainable T-shirt</p>
                             </center>
                             <div class="center product-ratings" style="border-color: red">
-                                <span class="rating-values">3.5 <span class="fa fa-star" style="color: green"></span><span class="seprator"></span>44 Ratings</span>
+                                <span class="rating-values">3.5 <span class="fa fa-star"
+                                        style="color: green"></span><span class="seprator"></span>44 Ratings</span>
                             </div>
                             <center>
                                 <p class="mt-2">
@@ -598,6 +536,7 @@
         </div>
     </div>
     <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/script_flipkart_modal.js' %}"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>

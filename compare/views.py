@@ -22,8 +22,9 @@ def compare(request):
 def search(request):
     search_item = request.GET['search_item']
     deal2 = flipkart_top_deal(search_item)
-    ret = flipkart_all_deals(driver, search_item)
-    return render(request, 'compare.html', {'deal2':deal2, 'ret':ret})
+    all_deals_flipkart = flipkart_all_deals(driver, search_item)
+    deals2_index = list(range(0,len(all_deals_flipkart)))
+    return render(request, 'compare.html', {'deal2':deal2, 'deals2':all_deals_flipkart, 'deals2_len':len(all_deals_flipkart), 'deals2_index':deals2_index})
 
 def flipkart_top_deal(search_item):
     item = search_item.replace(" ", "+")

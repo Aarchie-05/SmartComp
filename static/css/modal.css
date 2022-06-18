@@ -106,3 +106,44 @@
 .item-card {
     margin: 0;
 }
+
+.closeF {
+    color: #000;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    margin-left: 40px;
+}
+
+.closeF:hover,
+.closeF:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.column1 {
+    float: left;
+    width: 45%;
+    padding: 0 10px;
+    margin: 20px;
+  }
+  
+  /* Remove extra left and right margins, due to padding */
+  .row1 {margin: 0 -5px;}
+  
+  /* Clear floats after the columns */
+  .row1:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive columns */
+  @media screen and (max-width: 600px) {
+    .column1 {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
