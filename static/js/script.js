@@ -24,3 +24,29 @@ window.onclick = function (event) {
     }
 }
 
+$(document).ready(function() {
+    console.log("abc");
+/*const id = out
+console.log(out)
+$.ajax({
+  url: '/',
+  method: 'GET'
+})
+.done((res) => {
+
+  const taskStatus = res.task_status;
+  const taskid = res.task_id;
+  const taskres = res.task_result;
+  console.log(taskStatus)
+  console.log(taskid)
+  console.log(taskres)
+
+  if (taskStatus === 'SUCCESS' || taskStatus === 'FAILURE') return false;
+  setTimeout(function() {
+    getStatus(res.task_id);
+  }, 1000);
+})
+.fail((err) => {
+  console.log(err)
+});*/
+});

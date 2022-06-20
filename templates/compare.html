@@ -43,6 +43,7 @@
     </style>
 </head>
 <body>
+    <p>{{out}}</p>
     <!-- NAVBAR -->
     <div class="navbar-top">
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f9f9f9;">
@@ -540,6 +541,49 @@
             </div>
         </div>
     </div>
+    <script>
+        /*$(document).ready(function() {
+            $.ajax({
+              url: '',
+              data: { type: $(this).data('type') },
+              method: 'POST',
+            })
+            .done((res) => {
+              getStatus(res.task_id);
+            })
+            .fail((err) => {
+              console.log(err);
+            });
+          });*/
+          //function getStatus(taskID) {
+        
+            /*$(document).ready(function() {
+                console.log("abc");
+            const id = out
+            console.log(out)
+            $.ajax({
+              url: '/',
+              method: 'GET'
+            })
+            .done((res) => {
+          
+              const taskStatus = res.task_status;
+              const taskid = res.task_id;
+              const taskres = res.task_result;
+              console.log(taskStatus)
+              console.log(taskid)
+              console.log(taskres)
+          
+              if (taskStatus === 'SUCCESS' || taskStatus === 'FAILURE') return false;
+              setTimeout(function() {
+                getStatus(res.task_id);
+              }, 1000);
+            })
+            .fail((err) => {
+              console.log(err)
+            });
+          });*/
+    </script>
     <script src="{% static 'js/script.js' %}"></script>
     <script src="{% static 'js/script_flipkart_modal.js' %}"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -551,6 +595,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </body>
 
 </html>

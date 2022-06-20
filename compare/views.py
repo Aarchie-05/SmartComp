@@ -4,6 +4,7 @@ from django.shortcuts import render
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from compare.flipkart_deals import *
+from .tasks import func
 
 # Create your views here.
 
@@ -17,7 +18,8 @@ options.add_argument ("--no-sandbox")
 driver = webdriver.Chrome(executable_path=r'E:\SmartComp\Chrome Drivers\chromedriver.exe' ,options=options)
 
 def compare(request):
-    return render(request, 'compare.html')
+    out = func.delay()
+    return render(request, 'compare.html', {'out':out})
 
 def search(request):
     search_item = request.GET['search_item']
