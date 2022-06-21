@@ -4,8 +4,9 @@ from django.shortcuts import render
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from compare.flipkart_deals import *
-from .tasks import func
-
+# from .tasks import func
+from .tasks import *
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 # os.environ['PATH'] += r"C:\Selenium Drivers\chromedriver_win32"
@@ -18,7 +19,7 @@ options.add_argument ("--no-sandbox")
 driver = webdriver.Chrome(executable_path=r'E:\SmartComp\Chrome Drivers\chromedriver.exe' ,options=options)
 
 def compare(request):
-    out = func.delay()
+    out = getData.apply_async()
     return render(request, 'compare.html', {'out':out})
 
 def search(request):
@@ -141,3 +142,9 @@ def flipkart_top_deal(search_item):
     #deal_data = json.loads(str(deal_data)+'')
 
     return deal_data
+
+@csrf_exempt
+def run_task(request):
+    if request.POST:
+        task_type = request.POST.get("type")
+        return JsonResponse({"task_type": task_type}, status=202)
