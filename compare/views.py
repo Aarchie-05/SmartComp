@@ -1,5 +1,5 @@
 import os
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -148,3 +148,5 @@ def run_task(request):
     if request.POST:
         task_type = request.POST.get("type")
         return JsonResponse({"task_type": task_type}, status=202)
+
+driver.quit
