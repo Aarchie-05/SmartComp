@@ -8,7 +8,8 @@ from .tasks import *
 # Create your views here.
 
 def home(request):
-    return render(request, 'home.html')
+    out = amazon_best_deals.delay()
+    return render(request, 'home.html', {'out':out})
 
 class AjaxHandlerView(View):
     def get(self, request):

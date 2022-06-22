@@ -1,3 +1,4 @@
+import json
 import os
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
@@ -153,22 +154,24 @@ class AjaxHandlerView(View):
         search = request.GET.get('search')
         store = request.GET.get('store')
         req_data = request.GET.get('req_data')
-
+        data = {}
         if req_data == 'primary':
             if store == 'flipkart':
-                pass
+                data = flipkart_primary_deal.delay(search)
             elif store == 'amazon':
-                pass
+                data = amazon_primary_deals.delay(search)
             elif store == 'snapdeal':
                 pass
         elif req_data == 'other':
             if store == 'flipkart':
-                pass
+                data = flipkart_other_deals.delay(search)
             elif store == 'amazon':
                 pass
             elif store == 'snapdeal':
                 pass
-                    
-        return JsonResponse({'found':'false'}, status=200)
+        
+        return JsonResponse(data.get(), status=200, safe=False)
+            
+        # return JsonResponse([{'found':'false', 'out':str(out.get())}], status=200, safe=False)
 
 
