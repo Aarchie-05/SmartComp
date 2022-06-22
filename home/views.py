@@ -1,6 +1,37 @@
 from django.shortcuts import render
+from django.http import HttpResponse, JsonResponse
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from django.views.generic import View
+from .tasks import *
+# Create your views here.
+
+# os.environ['PATH'] += r"C:\Selenium Drivers\chromedriver_win32"
+options = webdriver. ChromeOptions()
+options.add_argument("- incognito")
+options.add_argument("--headless")
+options.add_argument("--disable-dev-shm-usage")
+options.add_argument ("--no-sandbox")
+driver = webdriver.Chrome(executable_path=r'E:\SmartComp\Chrome Drivers\chromedriver.exe' ,options=options)
 
 # Create your views here.
 
 def home(request):
     return render(request, 'home.html')
+
+class AjaxHandlerView(View):
+    def get(self, request):
+        store = request.GET.get('store')
+        req_data = request.GET.get('req_data')
+
+        if req_data == 'best-deals':
+            if store == 'flipkart':
+                pass
+            elif store == 'amazon':
+                data = amazon_best_deals.delay()
+                return JsonResponse({'data':data.get()}, status=200)
+            elif store == 'snapdeal':
+                pass
+                    
+        data = amazon_best_deals.delay()
+        return JsonResponse({'data': data.get()}, status=200)
