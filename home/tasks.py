@@ -58,3 +58,8 @@ def amazon_best_deals(self):
     df = pd.DataFrame(data)
 
     return df.to_json()
+
+
+@shared_task(bind=True)
+def snapdeal_best_deals(self):
+    pass
