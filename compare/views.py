@@ -7,6 +7,7 @@ from compare.flipkart_deals import *
 # from .tasks import func
 from .tasks import *
 from django.views.decorators.csrf import csrf_exempt
+from django.views.generic import View
 # Create your views here.
 
 # os.environ['PATH'] += r"C:\Selenium Drivers\chromedriver_win32"
@@ -19,7 +20,7 @@ options.add_argument ("--no-sandbox")
 driver = webdriver.Chrome(executable_path=r'E:\SmartComp\Chrome Drivers\chromedriver.exe' ,options=options)
 
 def compare(request):
-    out = getData.apply_async()
+    out = getData.delay()
     return render(request, 'compare.html', {'out':out})
 
 def search(request):
@@ -143,10 +144,31 @@ def flipkart_top_deal(search_item):
 
     return deal_data
 
-@csrf_exempt
-def run_task(request):
-    if request.POST:
-        task_type = request.POST.get("type")
-        return JsonResponse({"task_type": task_type}, status=202)
 
-driver.quit
+
+class AjaxHandlerView(View):
+
+    def get(self, request):
+        out = getData.delay()
+        search = request.GET.get('search')
+        store = request.GET.get('store')
+        req_data = request.GET.get('req_data')
+
+        if req_data == 'primary':
+            if store == 'flipkart':
+                pass
+            elif store == 'amazon':
+                pass
+            elif store == 'snapdeal':
+                pass
+        elif req_data == 'other':
+            if store == 'flipkart':
+                pass
+            elif store == 'amazon':
+                pass
+            elif store == 'snapdeal':
+                pass
+                    
+        return JsonResponse({'found':'false'}, status=200)
+
+
