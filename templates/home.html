@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,8 +11,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
     <!-- Owl Stylesheets -->
-    <link rel="stylesheet" href="../static/owl_assets//owlcarousel/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="../static/owl_assets//owlcarousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="{% static 'owl_assets//owlcarousel/assets/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'owl_assets//owlcarousel/assets/owl.theme.default.min.css' %}">
 
     <style>
         .deal-container{
@@ -29,7 +30,7 @@
 <div class="container">
     <div>
         <center>
-            <img src="../static/images/SMARTCOMP.png" alt="logo" height="30px" style="margin-top:60px; margin-bottom: 40px;">
+            <img src="{% static 'images/SMARTCOMP.png' %}" alt="logo" height="30px" style="margin-top:60px; margin-bottom: 40px;">
             <div class="input-group">
                 <input type="text" class="form-control search-bar" placeholder="Search" aria-label="Username"
                     aria-describedby="basic-addon1" name="search_item">
@@ -45,7 +46,7 @@
     </div>
     <div style="margin-top:50px;">
         <div class="owl-wrapper">
-            <h4 style="margin-bottom: 20px; vertical-align: middle;"><img height="50px" src="../static/images/Amazon logo.png"/> - Deals of the Day</h4>
+            <h4 style="margin-bottom: 20px; vertical-align: middle;"><img height="50px" src="{% static 'images/Amazon logo.png' %}"/> - Deals of the Day</h4>
             <div class="owl-carousel owl-theme">
                 <div class="deal-container">
                     <a height="100%" href="https://www.amazon.in/stores/page/preview?isPreview=1&isSlp=1&asins=B08N5YD6NF%2CB098XLXDRS%2CB09V1GMW72%2CB094XF92HG%2CB0932LNQ5L%2CB08GG8WCW7%2CB09SQ2KK4B%2CB09QTNZ3QY%2CB09MHTJRWC%2CB09TPHMMFN%2CB09P478FSZ%2CB09V1F446C%2CB09QT9Q2JM%2CB095HZKCGH%2CB0932NQ4CZ%2CB0932MY7RV%2CB09Q3645YF%2CB095Z261FW%2CB09V1G8BQ6%2CB098QB1TPX%2CB09NNBXYLP%2CB09KLYYHHJ%2CB09KGQ1FZ2%2CB09B7YQC5D%2CB09MHVQNBN%2CB09SKV8TXD%2CB09NLS1KZW%2CB09Q35NBG6%2CB09NM2DQ9T%2CB09V1F51SF%2CB0932NLLC5%2CB09NNMYQ3F%2CB09MHTTMNQ%2CB09JN1BMT4%2CB09RX33P36%2CB09M3GP7K6%2CB09P45KHSD%2CB098F7RXYR%2CB097TYRFJJ%2CB08J3D2YHV%2CB09SKTLDK1%2CB09S6V6XN8%2CB09CGRHCSY%2CB09VQ21TW4%2CB09P45KDRY%2CB09LM6CYC4%2CB09MLQPYBF%2CB09RK4H99B%2CB09QC5Y7D4%2CB09JFD5MKT%2CB08HF8Y1YD%2CB09T79X6QD%2CB09NY9BH9V%2CB09S9L66NB%2CB09Q5F1GTP%2CB09CGSC7RF%2CB09GPBVXVJ%2CB09RQLJ41D%2CB09RX285W1%2CB0864KFBNP%2CB09QC4HC7F%2CB09MHT7RPQ%2CB09G9JBTQX%2CB09BRCHW4B%2CB09S6SVHRD%2CB09GVN8D2C%2CB08BD43MZ7%2CB09S3Y2C9F%2CB09MTVR7W6%2CB09JFD8QBL%2CB09MHTFGVK%2CB09MTW7X4D%2CB09QSR2QVG%2CB09S6SGMP2%2CB09S9TVRXL%2CB09MCVK4QR%2CB0933L1RWD%2CB09JZRR376%2CB09S9XXTK5%2CB09SL7GLXW%2CB09C6C12TC%2CB09VGRD512%2CB09F3PY7K2%2CB09NRS37DW%2CB0983RVDPC%2CB09GS14GCK%2CB09FXM3WDR&ref=dlx_deals_gd_dcl_img_0_593ede22_dt_sl15_eb">
@@ -61,7 +62,7 @@
     </div>
     <div style="margin-top:50px;">
         <div class="owl-wrapper">
-            <h4 style="margin-bottom: 20px; vertical-align: middle;"><img height="70px" src="../static/images/Flipkart logo.png"/> - Today's Offers</h4>
+            <h4 style="margin-bottom: 20px; vertical-align: middle;"><img height="70px" src="{% static 'images/Flipkart logo.png' %}"/> - Today's Offers</h4>
             <div class="owl-carousel owl-theme">
                 <div class="deal-container">
                     <a height="100%" href="https://www.amazon.in/stores/page/preview?isPreview=1&isSlp=1&asins=B08N5YD6NF%2CB098XLXDRS%2CB09V1GMW72%2CB094XF92HG%2CB0932LNQ5L%2CB08GG8WCW7%2CB09SQ2KK4B%2CB09QTNZ3QY%2CB09MHTJRWC%2CB09TPHMMFN%2CB09P478FSZ%2CB09V1F446C%2CB09QT9Q2JM%2CB095HZKCGH%2CB0932NQ4CZ%2CB0932MY7RV%2CB09Q3645YF%2CB095Z261FW%2CB09V1G8BQ6%2CB098QB1TPX%2CB09NNBXYLP%2CB09KLYYHHJ%2CB09KGQ1FZ2%2CB09B7YQC5D%2CB09MHVQNBN%2CB09SKV8TXD%2CB09NLS1KZW%2CB09Q35NBG6%2CB09NM2DQ9T%2CB09V1F51SF%2CB0932NLLC5%2CB09NNMYQ3F%2CB09MHTTMNQ%2CB09JN1BMT4%2CB09RX33P36%2CB09M3GP7K6%2CB09P45KHSD%2CB098F7RXYR%2CB097TYRFJJ%2CB08J3D2YHV%2CB09SKTLDK1%2CB09S6V6XN8%2CB09CGRHCSY%2CB09VQ21TW4%2CB09P45KDRY%2CB09LM6CYC4%2CB09MLQPYBF%2CB09RK4H99B%2CB09QC5Y7D4%2CB09JFD5MKT%2CB08HF8Y1YD%2CB09T79X6QD%2CB09NY9BH9V%2CB09S9L66NB%2CB09Q5F1GTP%2CB09CGSC7RF%2CB09GPBVXVJ%2CB09RQLJ41D%2CB09RX285W1%2CB0864KFBNP%2CB09QC4HC7F%2CB09MHT7RPQ%2CB09G9JBTQX%2CB09BRCHW4B%2CB09S6SVHRD%2CB09GVN8D2C%2CB08BD43MZ7%2CB09S3Y2C9F%2CB09MTVR7W6%2CB09JFD8QBL%2CB09MHTFGVK%2CB09MTW7X4D%2CB09QSR2QVG%2CB09S6SGMP2%2CB09S9TVRXL%2CB09MCVK4QR%2CB0933L1RWD%2CB09JZRR376%2CB09S9XXTK5%2CB09SL7GLXW%2CB09C6C12TC%2CB09VGRD512%2CB09F3PY7K2%2CB09NRS37DW%2CB0983RVDPC%2CB09GS14GCK%2CB09FXM3WDR&ref=dlx_deals_gd_dcl_img_0_593ede22_dt_sl15_eb">
@@ -77,7 +78,7 @@
     </div>
     <div style="margin-top:50px; margin-bottom: 50px;">
         <div class="owl-wrapper">
-            <h4 style="margin-bottom: 20px; vertical-align: middle;"><img height="40px" src="../static/images/snapdeal logo.png"/> - Half Price Store</h4>
+            <h4 style="margin-bottom: 20px; vertical-align: middle;"><img height="40px" src="{% static 'images/snapdeal logo.png' %}"/> - Half Price Store</h4>
             <div class="owl-carousel owl-theme">
                 <div class="deal-container">
                     <a height="100%" href="https://www.amazon.in/stores/page/preview?isPreview=1&isSlp=1&asins=B08N5YD6NF%2CB098XLXDRS%2CB09V1GMW72%2CB094XF92HG%2CB0932LNQ5L%2CB08GG8WCW7%2CB09SQ2KK4B%2CB09QTNZ3QY%2CB09MHTJRWC%2CB09TPHMMFN%2CB09P478FSZ%2CB09V1F446C%2CB09QT9Q2JM%2CB095HZKCGH%2CB0932NQ4CZ%2CB0932MY7RV%2CB09Q3645YF%2CB095Z261FW%2CB09V1G8BQ6%2CB098QB1TPX%2CB09NNBXYLP%2CB09KLYYHHJ%2CB09KGQ1FZ2%2CB09B7YQC5D%2CB09MHVQNBN%2CB09SKV8TXD%2CB09NLS1KZW%2CB09Q35NBG6%2CB09NM2DQ9T%2CB09V1F51SF%2CB0932NLLC5%2CB09NNMYQ3F%2CB09MHTTMNQ%2CB09JN1BMT4%2CB09RX33P36%2CB09M3GP7K6%2CB09P45KHSD%2CB098F7RXYR%2CB097TYRFJJ%2CB08J3D2YHV%2CB09SKTLDK1%2CB09S6V6XN8%2CB09CGRHCSY%2CB09VQ21TW4%2CB09P45KDRY%2CB09LM6CYC4%2CB09MLQPYBF%2CB09RK4H99B%2CB09QC5Y7D4%2CB09JFD5MKT%2CB08HF8Y1YD%2CB09T79X6QD%2CB09NY9BH9V%2CB09S9L66NB%2CB09Q5F1GTP%2CB09CGSC7RF%2CB09GPBVXVJ%2CB09RQLJ41D%2CB09RX285W1%2CB0864KFBNP%2CB09QC4HC7F%2CB09MHT7RPQ%2CB09G9JBTQX%2CB09BRCHW4B%2CB09S6SVHRD%2CB09GVN8D2C%2CB08BD43MZ7%2CB09S3Y2C9F%2CB09MTVR7W6%2CB09JFD8QBL%2CB09MHTFGVK%2CB09MTW7X4D%2CB09QSR2QVG%2CB09S6SGMP2%2CB09S9TVRXL%2CB09MCVK4QR%2CB0933L1RWD%2CB09JZRR376%2CB09S9XXTK5%2CB09SL7GLXW%2CB09C6C12TC%2CB09VGRD512%2CB09F3PY7K2%2CB09NRS37DW%2CB0983RVDPC%2CB09GS14GCK%2CB09FXM3WDR&ref=dlx_deals_gd_dcl_img_0_593ede22_dt_sl15_eb">
@@ -96,8 +97,8 @@
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <!-- Owl Javascript -->
-<script src="../static/owl_assets/vendors/jquery.min.js"></script>
-<script src="../static/owl_assets//owlcarousel/owl.carousel.js"></script>
+<script src="{% static 'owl_assets/vendors/jquery.min.js' %}"></script>
+<script src="{% static 'owl_assets//owlcarousel/owl.carousel.js' %}"></script>
 <script>
     $(document).ready(function(){
       $(".owl-carousel").owlCarousel({
