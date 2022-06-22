@@ -25,23 +25,18 @@ window.onclick = function (event) {
 }
 
 $(document).ready(function() {
-  console.log("here")
-//   ajaxPost('/tasks', {type: 'getData'}, function(content){
-//     //onSuccess
-//     alert(content);
-// })
   $.ajax({
-    url: '/tasks/',
-    data: { type: 'getData' },
-    method: 'POST',
+    url: 'data',
+    type: 'get',
+    data: { search: 'dress', store: 'flipkart', req_data: 'primary'}
   })
   .done((res) => {
-    console.log('donezies')
+    console.log(res)
     // getStatus(res.task_id);
   })
   .fail((err) => {
     console.log('error');
-    console.log(err);
+    console.log(err.responseText);
   });
 });
 
