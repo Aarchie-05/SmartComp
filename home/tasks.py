@@ -1,7 +1,60 @@
 import time
+import pandas as pd
 from celery import shared_task
+from selenium.common.exceptions import WebDriverException
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+
+try:
+    driver.title
+    print(True)
+except:
+    print(False)
+    options = webdriver.ChromeOptions()
+    options.add_argument("- incognito")
+    options.add_argument("--headless")
+    options.add_argument("--disable-dev-shm-usage")
+    options.add_argument ("--no-sandbox")
+    driver = webdriver.Chrome(executable_path=r'E:\SmartComp\Chrome Drivers\chromedriver.exe' ,options=options)
+    driver.maximize_window()
 
 @shared_task(bind=True)
-def amazon_best_deals(self): 
-    print("Task Completed")
-    return "some data"
+def amazon_best_deals(self):
+    driver.get('https://www.amazon.in/gp/goldbox')
+    
+    all_deals = driver.find_elements(by=By.XPATH, value='//div[@aria-label="Deals grid"]//div[@data-testid="deal-card"]')
+
+    title = []
+    img = []
+    discount = []
+    deal_url = []
+    for deal in all_deals:
+        try:
+            deal_url.append(deal.find_element(by=By.XPATH, value='.//a').get_attribute('href'))
+        except:
+            continue
+        try:
+            img.append(deal.find_element(by=By.XPATH, value='.//img').get_attribute('src'))
+        except:
+            img.append(None)
+        try:
+            title.append(deal.find_element(by=By.XPATH, value=".//div[contains(@class, 'DealContent')]").text)
+        except:
+            title.append(None)
+        try:
+            discount.append(deal.find_element(by=By.XPATH,
+                                            value='.//a[not(.//img) and not(.//div[contains(@class, "DealContent")])]').text.split(
+                '\n')[0].strip())
+        except:
+            discount.append(None)
+
+    data = {
+        'Product Title': title,
+        'Offer': discount,
+        'Image Link': img,
+        'Deal Link': deal_url
+    }
+    df = pd.DataFrame(data)
+
+    return df.to_json()
