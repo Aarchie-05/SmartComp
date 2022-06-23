@@ -35,7 +35,7 @@ class AjaxHandlerView(View):
             elif store == 'snapdeal':
                 data = snapdeal_other_deals.delay(search)
         
-        return JsonResponse(data.get(), status=200, safe=False)
+        return JsonResponse({'data': data.get()}, status=200)
             
         # return JsonResponse([{'found':'false', 'out':str(out.get())}], status=200, safe=False)
 

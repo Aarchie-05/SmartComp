@@ -168,14 +168,15 @@ def flipkart_other_deals(self, search):
         By.XPATH,
         "//*[@class='_4ddWXP']"
     )
-    driver.quit()
-
+    
     if elements_type1:
         all_deals = search_type_1(elements_type1, search)
     if elements_type2:
         all_deals = search_type_2(elements_type2, search)
     if elements_type3:
         all_deals = search_type_3(elements_type3, search)
+    
+    driver.quit()
     
     print(all_deals)
     return all_deals
@@ -215,9 +216,9 @@ def search_type_1(self, elements, search):
                 By.XPATH,
                 ".//*[@class='_1a8UBa']"
             )
-            assured.append(True)
+            assured.append('True')
         except:
-            assured.append(False)
+            assured.append('False')
         try:
             title = element.find_element(
                 By.XPATH,
@@ -294,82 +295,99 @@ def search_type_1(self, elements, search):
 
 @shared_task(bind=True)
 def search_type_2(self, elements, search):
-    all_deals = []
+    driver = webdriver.Chrome(executable_path=r'E:\SmartComp\Chrome Drivers\chromedriver.exe' ,options=options)
+    item = search.replace(" ", "+")
+    BASE_SEARCH_URL = "https://www.flipkart.com/search?q={}&otracker=search&otracker1=search&marketplace=FLIPKART&as-show=on&as=off&sort=relevance"
+    url = BASE_SEARCH_URL.format(item)
+
+    driver.get(url)
+
+    companies = []
+    titles = []
+    prices = []
+    mrps = []
+    discounts = []
+    assured = []
+    imgs = []
+    item_links = []
+    ratings = []
+    ratings_count = []
+    descriptions = []
+
     for element in elements:
-        deal = {}
-        deal['company'] = None
+        companies.append(None)
         try:
             is_assured = element.find_element(
                 By.XPATH,
                 ".//*[@class='_13J9qT']"
             )
-            deal['assured'] = 'true'
+            assured.append('True')
         except:
-            deal['assured'] = 'false'
+            assured.append('False')
         try:
             title = element.find_element(
                 By.XPATH,
                 ".//*[@class='_4rR01T']"
             ).text.strip()
-            deal['title'] = title
+            titles.append(title)
         except:
-            deal['title'] = title
+            titles.append(None)
         try:
             price = element.find_element(
                 By.XPATH,
                 ".//*[@class='_30jeq3 _1_WHN1']"
             ).text.strip()
-            deal['price'] = price
+            prices.append(price)
         except:
-            deal['price']  = None
+            prices.append(None)
         try:
             mrp = element.find_element(
                 By.XPATH,
                 ".//*[@class='_3I9_wc _27UcVY']"
             ).text.strip()
-            deal['mrp'] = mrp
+            mrps.append(mrp)
         except:
-            deal['mrp'] = mrp
+            mrps.append(None)
         try:
             discount = element.find_element(
                 By.XPATH,
                 ".//*[@class='_3Ay6Sb']"
             ).text[0:3].strip()
-            deal['discount'] = discount
+            discounts.append(discount)
         except:
-            deal['discount'] = None
+            discounts.append(None)
         try:
             img = element.find_element(
                 By.XPATH,
                 ".//*[@class='_396cs4 _3exPp9']"
             ).get_attribute('src')
-            deal['img'] = img
+            imgs.append(img)
         except:
-            deal['img'] = img
+            imgs.append(None)
         try:
             item_link = element.find_element(
                 By.XPATH,
                 ".//*[@class='_1fQZEK']"
             ).get_attribute('href')
-            deal['item_link'] = item_link
+            item_links.append(item_link)
         except:
-            deal['item_link'] = item_link
+            item_links.append(None)
         try:
             rating = element.find_element(
                 By.XPATH,
                 ".//*[@class='_3LWZlK']"
             ).text.strip()
-            deal['rating'] = rating
+            ratings.append(rating)
         except:
-            deal['rating'] = None
+            ratings.append(None)
         try:
             count = element.find_element(
                 By.XPATH,
                 ".//*[@class='_2_R_DZ']"
             ).text
-            deal['no_of_rating'] = count
+            ratings_count.append(count)
         except:
-            deal['no_of_rating'] = None
+            ratings_count.append(None)
         try:
             i = 1
             description = []
@@ -380,107 +398,165 @@ def search_type_2(self, elements, search):
                 ).text.strip()
                 i = i + 1
                 description.append(desc)
-            deal['description'] = desc
+            descriptions.append(description)
         except:
-            deal['description'] = None
-        all_deals.append(deal)
-        print("------------------------------------------------------------------------------------------------")
-    return all_deals
+            descriptions.append(None)
+    
+    driver.quit()
+    print(titles, companies, imgs, mrps, prices, discounts, ratings, ratings_count, assured, item_links, sep='\n')
+    data = {
+        'Product Title' : titles,
+        'Product Company' : companies,
+        'Image Link' : imgs,
+        'MRP' : mrps,
+        'Price' : prices,
+        'Discount %age' : discounts,
+        'Rating' : ratings,
+        'Reviews Count' : ratings_count,
+        'Is_Assured' : assured,
+        'Item URL' : item_links,
+        'Description' : descriptions
+    }
+
+    print('\n\nConverting to DataFrame and printing it.\n\n')
+    df = pd.DataFrame(data)
+    return df.to_json()
 
 @shared_task(bind=True)
 def search_type_3(self, elements, search):
-    all_deals = []
+    driver = webdriver.Chrome(executable_path=r'E:\SmartComp\Chrome Drivers\chromedriver.exe' ,options=options)
+    item = search.replace(" ", "+")
+    BASE_SEARCH_URL = "https://www.flipkart.com/search?q={}&otracker=search&otracker1=search&marketplace=FLIPKART&as-show=on&as=off&sort=relevance"
+    url = BASE_SEARCH_URL.format(item)
+
+    driver.get(url)
+
+    companies = []
+    titles = []
+    prices = []
+    mrps = []
+    discounts = []
+    assured = []
+    imgs = []
+    item_links = []
+    ratings = []
+    ratings_count = []
     for element in elements:
-        deal = {}
-        deal['company'] = None
+        companies.append(None)
         try:
             is_assured = element.find_element(
                 By.XPATH,
                 ".//*[@class='_32g5_j']"
             )
-            deal['assured'] = 'true'
+            assured.append('True')
         except:
-            deal['assured'] = 'false'
+            assured.append('False')
         try:
             title = element.find_element(
                 By.XPATH,
                 ".//*[@class='s1Q9rs']"
             ).text.strip()
-            deal['title'] = title
+            titles.append(title)
         except:
-            deal['title'] = None
+            titles.append(None)
         try:
             price = element.find_element(
                 By.XPATH,
                 ".//*[@class='_30jeq3']"
             ).text.strip()
-            deal['price'] = price
+            prices.append(price)
         except:
-            deal['price'] = None
+            prices.append(None)
         try:
             mrp = element.find_element(
                 By.XPATH,
                 ".//*[@class='_3I9_wc']"
             ).text.strip()
-            deal['mrp'] = mrp
+            mrps.append(mrp)
         except:
-            deal['mrp'] = mrp
+            mrps.append(None)
         try:
             discount = element.find_element(
                 By.XPATH,
                 ".//*[@class='_3Ay6Sb']"
             ).text.strip()
-            deal['discount'] = discount
+            discounts.append(discount)
         except:
-            deal['discount'] = None
+            discounts.append(None)
         try:
             img = element.find_element(
                 By.XPATH,
                 ".//*[@class='_396cs4 _3exPp9']"
             ).get_attribute('src')
-            deal['img'] = img
+            imgs.append(img)
         except:
-            deal['img'] = img
+            imgs.append(None)
         try:
             item_link = element.find_element(
                 By.XPATH,
                 ".//*[@class='s1Q9rs']"
             ).get_attribute('href')
-            deal['item_link'] = item_link
+            item_links.append(item_link)
         except:
-            deal['item_link'] = item_link
+            item_links.append(None)
         try:
             rating = element.find_element(
                 By.XPATH,
                 ".//*[@class='_3LWZlK']"
             ).text.strip()
-            deal['rating'] = rating
+            ratings.append(rating)
         except:
-            deal['rating'] = None
+            ratings.append(None)
         try:
             no_of_rating = element.find_element(
                 By.XPATH,
                 ".//*[@class='_2_R_DZ']"
             ).text.strip()
-            deal['no_of_rating'] = no_of_rating
+            ratings_count.append(no_of_rating)
         except:
-            deal['no_of_rating'] = None
-        all_deals.append(deal)
-        print("------------------------------------------------------------------------------------------------")
-    return all_deals
+            ratings_count.append(None)
+    driver.quit()
+    
+    print(titles, companies, imgs, mrps, prices, discounts, ratings, ratings_count, assured, item_links, sep='\n')
+
+    data = {
+        'Product Title' : titles,
+        'Product Company' : companies,
+        'Image Link' : imgs,
+        'MRP' : mrps,
+        'Price' : prices,
+        'Discount %age' : discounts,
+        'Rating' : ratings,
+        'Reviews Count' : ratings_count,
+        'Is_Assured' : assured,
+        'Item URL' : item_links
+    }
+
+    print('\n\nConverting to DataFrame and printing it.\n\n')
+    df = pd.DataFrame(data)
+    return df.to_json()
 
 @shared_task(bind=True)
 def amazon_primary_deals(self, search):
     driver = webdriver.Chrome(executable_path=r'E:\SmartComp\Chrome Drivers\chromedriver.exe' ,options=options)
     url = get_search_url('amazon', search)
     driver.get(url)
-    top_item_link = driver.find_element(
-        by=By.XPATH,
-        value='//div[@data-component-type="s-search-result"]//div[contains(@class, "product-image")]//a'
-    ).get_attribute('href')
-    driver.get(top_item_link)
-
     deal_data = {}
+    primary_deal = driver.find_element(by=By.XPATH,
+                                       value='//div[@data-component-type="s-search-result"]')
+    try:
+        primary_deal.find_element(by=By.XPATH, value='.//i[@aria-label="Amazon Prime"]')
+        deal_data['type'] = "prime"
+    except:
+        try:
+            primary_deal.find_element(by=By.XPATH, value='.//img[@alt="Amazon Fresh"]')
+            deal_data['type'] = "fresh"
+        except:
+            deal_data['type'] = None
+
+    top_item_link = primary_deal.find_element(by=By.XPATH,
+                                        value='.//div[contains(@class, "product-image")]//a').get_attribute('href')
+    driver.get(top_item_link)
 
     deal_data['item_link'] = top_item_link
     deal_data['company'] = None
@@ -491,39 +567,39 @@ def amazon_primary_deals(self, search):
     deal_data['title'] = title
 
     try:
-        price = '.'.join(driver.find_element(
-            by=By.XPATH,
-            value="//div[contains(@id, 'corePriceDisplay')]//span[contains(@class, 'priceToPay')]"
-        ).text.strip().split('\n'))
+        sp = '.'.join(driver.find_element(by=By.XPATH,
+                                    value="//div[contains(@id, 'corePriceDisplay')]//span[contains(@class, 'priceToPay')]").text.strip().split('\n'))
     except:
         try:
-            formats = driver.find_elements(
-                by=By.XPATH, value="//div[@id='tmmSwatches']//li[not(contains(@style, 'display: none'))]//a[contains(@class, 'button-text')]"
-            )
-            price = {}
-            for format in formats:
-                price.update({format.find_element(by=By.XPATH, value=".//span[1]").text :
-                            format.find_element(by=By.XPATH, value=".//span[2]").text})
+            sp = driver.find_element(by=By.XPATH, value="//span[./parent::td[./preceding::td[normalize-space(text())='Deal of the Day:']]]").text.strip()
         except:
-            price = None
-    deal_data['price'] = price
+            try:
+                formats = driver.find_elements(by=By.XPATH, value="//div[@id='tmmSwatches']//li[not(contains(@style, 'display: none'))]//a[contains(@class, 'button-text')]")
+                sp = {}
+                for format in formats:
+                    sp.update({format.find_element(by=By.XPATH, value=".//span[1]").text :
+                                format.find_element(by=By.XPATH, value=".//span[2]").text})
+            except:
+                sp = None
+    deal_data['price'] = sp
     
     try:
-        mrp = driver.find_element(
-            by=By.XPATH,
-            value="//div[contains(@id, 'corePriceDisplay')]//span[@data-a-strike='true']"
-        ).text.strip()
+        mrp = driver.find_element(by=By.XPATH,
+                                value="//div[contains(@id, 'corePrice')]//span[@data-a-strike='true']").text.strip()
     except:
-       mrp = None  
+        mrp = None 
     deal_data['mrp'] = mrp
 
     try:
-        discount = driver.find_element(
-            by=By.XPATH,
-            value="//div[contains(@id, 'corePriceDisplay')]//span[contains(@class, 'savingsPercentage')]"
-        ).text.strip()
+        discount = driver.find_element(by=By.XPATH,
+                                    value="//div[contains(@id, 'corePrice')]//span[contains(@class, 'savingsPercentage')]").text.strip()
     except:
-        discount = None
+        try:
+            discount = driver.find_element(by=By.XPATH,
+                                        value="//span[./parent::td[./preceding::td[normalize-space(text())='You Save:']]]").text.strip()
+            discount = re.findall(r'(?<=\().+?(?=\))', discount)[0]
+        except:
+            discount = None
     deal_data['discount'] = discount
 
     try:
@@ -652,6 +728,7 @@ def amazon_other_deals(self, search):
         except:
             fresh.append(False)
 
+    driver.quit()
     print(title, company, image, mrp, sp, discount, rating, reviews_count, fresh, prime, item_url, sep='\n')
 
     data = {
@@ -821,6 +898,7 @@ def snapdeal_other_deals(self, search):
             except:
                 rating.append(None)
 
+    driver.quit()
     print(title, image, mrp, sp, discount, rating, reviews_count, item_url, sep='\n')
 
     data = {

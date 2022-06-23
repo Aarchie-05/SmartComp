@@ -274,38 +274,32 @@
                     </div>
                     <div class="deal-data" id="amazon-primary">
                         <div>
-                            <img src="{% static 'images/img1.jpg' %}" alt="" class="center" height="300px">
+                            <img src="" alt="" class="center" height="300px" id="primary_img_amz">
                             <hr>
                             <div class="deal-display">
                                 <center>
-                                    <p class="product-title">Amazon Brand - Symbol Men's Regular Polo Shirt</p>
+                                    <p class="product-title"><span id="primary_title_amz"></span></p>
                                 </center>
                                 <div class="btn-group center product-ratings">
-                                    <span class="rating-values">3.5 <span class="fa fa-star"
-                                            style="color: green"></span><span class="seprator"></span>44 Ratings</span>
+                                    <span class="rating-values"><span id="primary_rating_amz"></span> <span class="fa fa-star"
+                                            style="color: green"></span><span class="seprator"></span><span id="primary_rating_count__amz"></span> Ratings</span>
                                 </div>
                                 <center>
                                     <p class="mt-2">
-                                        <s class="product-mrp">M.R.P: ₹1,199 </s>
+                                        <s class="product-mrp">M.R.P: <span id="primary_mrp_amz"></span> </s>
                                         <span class="product-price"
-                                            style="color: maroon; font-size: 20px;">₹540.00</span>&nbsp;
-                                        <span class="product-discount" style="color: green">(55% off)</span>
+                                            style="color: maroon; font-size: 20px;"><span id="primary_price_amz"></span></span>&nbsp;
+                                        <span class="product-discount" style="color: green">(<span id="primary_discount_amz"></span>)</span>
                                     </p>
                                 </center>
-                                <img src="{% static 'images/prime 1.png' %}" alt="" class="center prime">
+                                <div id="primary_prime_amz">
+                                    
+                                </div>
                                 <hr>
                                 <div class="product-offers">
                                     <p class="center">Offers</p>
-                                    <ul>
-                                        <li>Buy 2 get 5% off, Buy 3 get 10% off.</li>
-                                        <li>10% Instant Discount up to INR 500 on SBI Credit Card Transactions. Min purchase
-                                            value INR 2000.</li>
-                                        <li>10% Instant Discount on Federal Bank Cards.</li>
-                                        <li>Prime Savings No cost EMI available on select cards. Please check 'EMI options'
-                                            above for more details. </li>
-                                        <li>No cost EMI available on select cards. Please check 'EMI options' above for more
-                                            details. </li>
-                                        <li>Get GST invoice and save up to 28% on business purchases.</li>
+                                    <ul id="primary_offers_amz">
+                                        
                                     </ul>
                                 </div>
                             </div>
@@ -391,83 +385,75 @@
                         </div>
                         <!-- <a href=""><i class="fa fa-close close-deal remove" style="font-size: 24px;"></i></a> -->
                     </div>
-                    <div class="deal-data">
-                        <img src="{{deal2.img}}" alt="" class="center" height="300px">
-                        <hr>
-                        <div class="deal-display">
-                            <center>
-                                <p class="product-title">{{deal2.title}}</p>
-                            </center>
-                            <div class="center product-ratings" style="border-color: red">
-                                <span class="rating-values">{{deal2.rating}} <span class="fa fa-star"
-                                        style="color: green"></span><span
-                                        class="seprator"></span>{{deal2.no_of_ratings}} Ratings</span>
-                            </div>
-                            <center>
-                                <p class="mt-2">
-                                    <s class="product-mrp">M.R.P: {{deal2.mrp}} </s>
-                                    <span class="product-price"
-                                        style="color: maroon; font-size: 20px;">{{deal2.price}}</span>&nbsp;
-                                    <span class="product-discount" style="color: green">({{deal2.discount}})</span>
-                                </p>
-                            </center>
-                            {% if deal2.is_assured %}
-                            <img src="{% static 'images/fassured 1.png' %}" alt="" class="center assured mb-1">
-                            {% else %}
-                            <br>
-                            {% endif %}
+                    <div class="deal-data" id="flipkart-primary">
+                        <div>
+                            <img src="" alt="" class="center" height="300px" id="primary_img_flip">
                             <hr>
-                            <div class="product-offers">
-                                <p class="center">Offers</p>
-                                <ul>
-                                    {% for offer in deal2.offers %}
-                                    <li>{{offer}}</li>
-                                    {% endfor %}
-                                </ul>
+                            <div class="deal-display">
+                                <center>
+                                    <p class="product-title"><span id="primary_title_flip"></span></p>
+                                </center>
+                                <div class="center product-ratings" style="border-color: red">
+                                    <span class="rating-values"><span class="primary_rating_flip"></span> <span class="fa fa-star"
+                                            style="color: green"></span><span
+                                            class="seprator"></span><span id="primary_rating_count_flip"></span> Ratings</span>
+                                </div>
+                                <center>
+                                    <p class="mt-2">
+                                        <s class="product-mrp">M.R.P: <span id="primary_mrp_flip"></span> </s>
+                                        <span class="product-price"
+                                            style="color: maroon; font-size: 20px;"><span id="primary_price_flip"></span></span>&nbsp;
+                                        <span class="product-discount" style="color: green">(<span id="primary_discount_flip"></span>)</span>
+                                    </p>
+                                </center>
+                                <div id="primary_assured_flip">
+                                    
+                                </div>
+                                <br>
+                                <hr>
+                                <div class="product-offers" id="primary_offers_flip">
+                                    <p class="center">Offers</p>
+                                    <ul id="primary_offers_flip">
+                                        
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- MYNTRA DEAL -->
+                <!-- SNAPDEAL DEAL -->
                 <div class="col-4 column deal">
                     <div class="store-logo">
-                        <img src="{% static 'images/Myntra Logo.png' %}" alt="myntra" class="myntra">
+                        <img src="{% static 'images/snapdeal logo.png' %}" alt="snapdeal" class="myntra">
                         <a href=""><img src="{% static 'images/change deal.svg' %}" alt="" class="change-deal"></a>
                         <!-- <a href=""><i class="fa fa-close close-deal remove" style="font-size: 24px;"></i></a> -->
                     </div>
-                    <div class="deal-data">
-                        <img src="https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/16741312/2022/3/14/9b79519d-6f71-4460-ac74-1d3d8fa497f21647260829571-ADIDAS-Men-Tshirts-9901647260829098-1.jpg"
-                            alt="" class="center" height="300px">
-                        <hr>
-                        <div class="deal-display">
-                            <center>
-                                <p class="product-title">Men Fluorescent Green Printed Sustainable T-shirt</p>
-                            </center>
-                            <div class="center product-ratings" style="border-color: red">
-                                <span class="rating-values">3.5 <span class="fa fa-star"
-                                        style="color: green"></span><span class="seprator"></span>44 Ratings</span>
-                            </div>
-                            <center>
-                                <p class="mt-2">
-                                    <s class="product-mrp">M.R.P: ₹1,199 </s>
-                                    <span class="product-price"
-                                        style="color: maroon; font-size: 20px;">₹540.00</span>&nbsp;
-                                    <span class="product-discount" style="color: green">(55% off)</span>
-                                </p>
-                            </center>
-                            <br>
+                    <div class="deal-data" id="snapdeal-primary">
+                        <div>
+                            <img src="" alt="" class="center" height="300px" id="primary_img_snap">
                             <hr>
-                            <div class="product-offers">
-                                <p class="center">Offers</p>
-                                <p><b>Best Price: Rs. 874</b></p>
-                                <ul>
-                                    <li>Coupon Discount: Rs. 175 off (check cart for final savings)</li>
-                                    <li>Applicable on: Orders above Rs. 2999 (only on first purchase)</li>
-                                    <li>Coupon code: MYNTRA500</li>
-                                    <li>10% Instant Discount on ICICI Bank Credit and Debit Cards </li>
-                                    <li>10% Instant Discount on Axis Bank Credit and Debit Cards</li>
-                                    <li>15% Cashback upto Rs 750 on ZestMoney.</li>
-                                </ul>
+                            <div class="deal-display">
+                                <center>
+                                    <p class="product-title"><span id="primary_title_snap"></span></p>
+                                </center>
+                                <div class="center product-ratings" style="border-color: red">
+                                    <span class="rating-values"><span id="primary_rating_snap"></span> <span class="fa fa-star"
+                                            style="color: green"></span><span class="seprator"></span><span id="primary_rating_count_snap"></span> Ratings</span>
+                                </div>
+                                <center>
+                                    <p class="mt-2">
+                                        <s class="product-mrp">M.R.P: <span id="primary_mrp_snap"></span> </s>
+                                        <span class="product-price"
+                                            style="color: maroon; font-size: 20px;"><span id="primary_price_snap"></span></span>&nbsp;
+                                        <span class="product-discount" style="color: green">(<span id="primary_discount_snap"></span>)</span>
+                                    </p>
+                                </center>
+                                <br>
+                                <br>
+                                <hr>
+                                <div class="product-offers" id="primary_offers_snap">
+                                    
+                                </div>
                             </div>
                         </div>
                     </div>
