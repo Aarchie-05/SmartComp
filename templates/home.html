@@ -30,42 +30,38 @@
 <div class="container">
     <div>
         <center>
-            <img src="{% static 'images/SMARTCOMP.png' %}" alt="logo" height="30px" style="margin-top:60px; margin-bottom: 40px;">
-            <div class="input-group">
-                <input type="text" class="form-control search-bar" placeholder="Search" aria-label="Username"
-                    aria-describedby="basic-addon1" name="search_item">
-                <div class="input-group-prepend">
-                    <button type="submit" height="100%" style="border: none; padding:0px; margin:0; margin-left:-1px; background-color: transparent;">
-                        <span class="input-group-text google">
-                            <img src="https://img.icons8.com/search" height="18px">
+            <img src="{% static 'images/SMARTCOMP.png' %}" alt="logo" height="30px" style="margin-top:60px; margin-bottom: 50px;">
+            <form action="http://127.0.0.1:8000/compare" method="get">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search" aria-label="Username"
+                        aria-describedby="basic-addon1" name="search_item" required>
+                    <div class="input-group-append">
+                        <span class="input-group-text">
+                            <button type="submit" style="border: none; padding:0px; margin:0; background-color: transparent;">
+                                <img src="https://img.icons8.com/search" height="18px" style="margin-top: -4px;">
+                            </button>
                         </span>
-                    </button>
+                    </div>
                 </div>
-            </div>
+            </form>
         </center>
     </div>
+    <div id="loading" style="margin-top: 200px;">
+        <center><img height="40px" src="{% static 'images/loading.gif' %}"/></center>
+    </div>
     <div style="margin-top:50px;">
-        <div class="owl-wrapper">
-            <h4 style="margin-bottom: 20px; vertical-align: middle;"><img height="50px" src="{% static 'images/Amazon logo.png' %}"/> - Deals of the Day</h4>
-            <div class="owl-carousel owl-theme" id="amazon-carousel">
-                <!-- Amazon Deals -->
-            </div>
+        <div class="owl-carousel owl-theme" id="amazon-carousel">
+            <!-- Amazon Deals -->
         </div>
     </div>
     <div style="margin-top:50px;">
-        <div class="owl-wrapper">
-            <h4 style="margin-bottom: 20px; vertical-align: middle;"><img height="70px" src="{% static 'images/Flipkart logo.png' %}"/> - Today's Offers</h4>
-            <div class="owl-carousel owl-theme"  id="flipkart-carousel">
-                <!-- Flipkart Deals -->
-            </div>
+        <div class="owl-carousel owl-theme"  id="flipkart-carousel">
+            <!-- Flipkart Deals -->
         </div>
     </div>
     <div style="margin-top:50px; margin-bottom: 50px;">
-        <div class="owl-wrapper">
-            <h4 style="margin-bottom: 20px; vertical-align: middle;"><img height="40px" src="{% static 'images/snapdeal logo.png' %}"/> - Half Price Store</h4>
-            <div class="owl-carousel owl-theme"  id="snapdeal-carousel">
-                <!-- Snapdeal Deals -->
-            </div>
+        <div class="owl-carousel owl-theme"  id="snapdeal-carousel">
+            <!-- Snapdeal Deals -->
         </div>
     </div>
 </body>
