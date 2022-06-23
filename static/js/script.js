@@ -29,7 +29,7 @@ $(document).ready(function() {
   $.ajax({
     url: 'data',
     type: 'get',
-    data: { search: 'shampoo', store: 'amazon', req_data: 'primary'}
+    data: { search: 'shampoo', store: 'snapdeal', req_data: 'other'}
   })
   .done((res) => {
     console.log(res)
