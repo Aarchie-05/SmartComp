@@ -20,6 +20,8 @@ def amazon_best_deals(self):
     driver.get('https://www.amazon.in/gp/goldbox')
     
     all_deals = driver.find_elements(by=By.XPATH, value='//div[@aria-label="Deals grid"]//div[@data-testid="deal-card"]')
+    if len(all_deals) > 15:
+        all_deals = all_deals[0:15]
 
     title = []
     img = []
@@ -68,6 +70,8 @@ def snapdeal_best_deals(self):
     driver.get('https://www.snapdeal.com/offers/half_price_store')
 
     all_deals = driver.find_elements(by=By.XPATH, value="//div[normalize-space(@class)='cardRow']/div[contains(@class, 'cardProd')]")
+    if len(all_deals) > 15:
+        all_deals = all_deals[0:15]
 
     title = []
     img = []
@@ -151,8 +155,11 @@ def flipkart_best_deals(self):
 
     items = driver.find_elements(
         By.XPATH,
-        "//*[@class='_1FNrEw']"
+        "//*[@class='_1FNrEw' and position()<15]"
     )
+    if len(items) > 15:
+        items = items[0:15]
+
     titles = []
     discounts = []
     imgs = []
