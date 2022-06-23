@@ -16,7 +16,7 @@ class AjaxHandlerView(View):
 
         if req_data == 'best-deals':
             if store == 'flipkart':
-                pass
+                data = flipkart_best_deals.delay()
             elif store == 'amazon':
                 data = amazon_best_deals.delay()
             elif store == 'snapdeal':

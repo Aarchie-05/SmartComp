@@ -455,7 +455,7 @@ def search_type_3(self, elements):
 
 @shared_task(bind=True)
 def amazon_primary_deals(self, search):
-    url = get_search_url('flipkart', search)
+    url = get_search_url('amazon', search)
     driver.get(url)
     # soup = BeautifulSoup(driver.page_source, 'lxml').prettify()
     # with open('page_source.html', 'wb') as f:
