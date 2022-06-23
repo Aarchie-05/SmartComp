@@ -15,38 +15,8 @@
     <link rel="stylesheet" href="{% static 'css/modal.css' %}">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-    <style>
-        .column1 {
-            float: left;
-            width: 45%;
-            padding: 0 10px;
-            margin: 20px;
-          }
-          
-          /* Remove extra left and right margins, due to padding */
-          .row1 {margin: 0 -5px;}
-          
-          /* Clear floats after the columns */
-          .row1:after {
-            content: "";
-            display: table;
-            clear: both;
-          }
-          
-          /* Responsive columns */
-          @media screen and (max-width: 600px) {
-            .column1 {
-              width: 100%;
-              display: block;
-              margin-bottom: 20px;
-            }
-          }
-    </style>
 </head>
 <body>
-    <!-- <p>{{out}}</p> -->
-    <p>{{out.get}}</p>
     <!-- NAVBAR -->
     <div class="navbar-top">
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f9f9f9;">
@@ -55,8 +25,8 @@
                     <img src="{% static 'images/SMARTCOMP.png' %}" alt="" height="25px">
                 </a>
             </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
-                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -65,12 +35,12 @@
                 </ul>
                 <form class="form-inline my-2 my-lg-0 m-4 mr-4" action="search">
                     <div class="input-group">
-                        <input type="text" class="form-control search-bar" placeholder="Search" aria-label="Username"
-                            aria-describedby="basic-addon1" name="search_item">
+                        <input type="text" class="form-control search-bar" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1" name="search_item">
                         <div class="input-group-prepend">
-                            <button type="submit" style="border: none; background-color: transparent;"><span
-                                    class="input-group-text google" id="basic-addon1"><img
-                                        src="https://img.icons8.com/search" height="18px"></span></button>
+                            <button type="submit" style="border: none; background-color: transparent;">
+                                <span class="input-group-text google" id="basic-addon1">
+                                <img src="https://img.icons8.com/search" height="18px"></span>
+                            </button>
                         </div>
                     </div>
                 </form>
@@ -97,10 +67,12 @@
         <div class="price-range " width="40">
             <form action="">
                 <div class="d-flex flex-column bd-highlight mb-3 ml-4 form-group">
-                    <div class="p-2 bd-highlight"><input type="text" class="form-control"> <span
-                            class="ml-4 span-it">to</span>
-                        <input type="number" class="form-control"></div>
-                    <div class="p-2 bd-highlight"><button type="button" class="btn btn-success btn-sm">Apply</button>
+                    <div class="p-2 bd-highlight"><input type="text" class="form-control"> 
+                        <span class="ml-4 span-it">to</span>
+                        <input type="number" class="form-control">
+                    </div>
+                    <div class="p-2 bd-highlight">
+                        <button type="button" class="btn btn-success btn-sm">Apply</button>
                     </div>
                 </div>
             </form>
@@ -300,40 +272,42 @@
                         </div>
                         <!-- <a href=""><i class="fa fa-close close-deal remove" style="font-size: 24px;"></i></a> -->
                     </div>
-                    <div class="deal-data">
-                        <img src="{% static 'images/img1.jpg' %}" alt="" class="center" height="300px">
-                        <hr>
-                        <div class="deal-display">
-                            <center>
-                                <p class="product-title">Amazon Brand - Symbol Men's Regular Polo Shirt</p>
-                            </center>
-                            <div class="btn-group center product-ratings">
-                                <span class="rating-values">3.5 <span class="fa fa-star"
-                                        style="color: green"></span><span class="seprator"></span>44 Ratings</span>
-                            </div>
-                            <center>
-                                <p class="mt-2">
-                                    <s class="product-mrp">M.R.P: ₹1,199 </s>
-                                    <span class="product-price"
-                                        style="color: maroon; font-size: 20px;">₹540.00</span>&nbsp;
-                                    <span class="product-discount" style="color: green">(55% off)</span>
-                                </p>
-                            </center>
-                            <img src="{% static 'images/prime 1.png' %}" alt="" class="center prime">
+                    <div class="deal-data" id="amazon-primary">
+                        <div>
+                            <img src="{% static 'images/img1.jpg' %}" alt="" class="center" height="300px">
                             <hr>
-                            <div class="product-offers">
-                                <p class="center">Offers</p>
-                                <ul>
-                                    <li>Buy 2 get 5% off, Buy 3 get 10% off.</li>
-                                    <li>10% Instant Discount up to INR 500 on SBI Credit Card Transactions. Min purchase
-                                        value INR 2000.</li>
-                                    <li>10% Instant Discount on Federal Bank Cards.</li>
-                                    <li>Prime Savings No cost EMI available on select cards. Please check 'EMI options'
-                                        above for more details. </li>
-                                    <li>No cost EMI available on select cards. Please check 'EMI options' above for more
-                                        details. </li>
-                                    <li>Get GST invoice and save up to 28% on business purchases.</li>
-                                </ul>
+                            <div class="deal-display">
+                                <center>
+                                    <p class="product-title">Amazon Brand - Symbol Men's Regular Polo Shirt</p>
+                                </center>
+                                <div class="btn-group center product-ratings">
+                                    <span class="rating-values">3.5 <span class="fa fa-star"
+                                            style="color: green"></span><span class="seprator"></span>44 Ratings</span>
+                                </div>
+                                <center>
+                                    <p class="mt-2">
+                                        <s class="product-mrp">M.R.P: ₹1,199 </s>
+                                        <span class="product-price"
+                                            style="color: maroon; font-size: 20px;">₹540.00</span>&nbsp;
+                                        <span class="product-discount" style="color: green">(55% off)</span>
+                                    </p>
+                                </center>
+                                <img src="{% static 'images/prime 1.png' %}" alt="" class="center prime">
+                                <hr>
+                                <div class="product-offers">
+                                    <p class="center">Offers</p>
+                                    <ul>
+                                        <li>Buy 2 get 5% off, Buy 3 get 10% off.</li>
+                                        <li>10% Instant Discount up to INR 500 on SBI Credit Card Transactions. Min purchase
+                                            value INR 2000.</li>
+                                        <li>10% Instant Discount on Federal Bank Cards.</li>
+                                        <li>Prime Savings No cost EMI available on select cards. Please check 'EMI options'
+                                            above for more details. </li>
+                                        <li>No cost EMI available on select cards. Please check 'EMI options' above for more
+                                            details. </li>
+                                        <li>Get GST invoice and save up to 28% on business purchases.</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -544,70 +518,16 @@
             </div>
         </div>
     </div>
-    <script>
-        /*$(document).ready(function() {
-            $.ajax({
-              url: '',
-              data: { type: $(this).data('type') },
-              method: 'POST',
-            })
-            .done((res) => {
-              getStatus(res.task_id);
-            })
-            .fail((err) => {
-              console.log(err);
-            });
-          });*/
-          //function getStatus(taskID) {
-        
-            /*$(document).ready(function() {
-                console.log("abc");
-            const id = out
-            console.log(out)
-            $.ajax({
-              url: '/',
-              method: 'GET'
-            })
-            .done((res) => {
-          
-              const taskStatus = res.task_status;
-              const taskid = res.task_id;
-              const taskres = res.task_result;
-              console.log(taskStatus)
-              console.log(taskid)
-              console.log(taskres)
-          
-              if (taskStatus === 'SUCCESS' || taskStatus === 'FAILURE') return false;
-              setTimeout(function() {
-                getStatus(res.task_id);
-              }, 1000);
-            })
-            .fail((err) => {
-              console.log(err)
-            });
-          });*/
-          $( document ).ready(function() { 
-            console.log("ok");
-           });
-    </script>
     <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/primary_deals.js' %}"></script>
+    <script src="{% static 'js/other_deals.js' %}"></script>
     <script src="{% static 'js/script_flipkart_modal.js' %}"></script>
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script> -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
-    <!-- <script id="data" type="application/json">{{out}}</script> -->
-    <!-- <script type="text/javascript">
-        var a = "{{out|safe}}"
-        console.log(a);
-        // const value = JSON.parse(document.getElementById('data').textContent);
-        // console.log(value)
-    </script> -->
 </body>
 
 </html>

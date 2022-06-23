@@ -1,14 +1,7 @@
-import json
 import re
-import time
-
-from bs4 import BeautifulSoup
 from celery import shared_task
-
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from .models import FlipkartDeals
-import lxml
 import pandas as pd
 
 options = webdriver. ChromeOptions()
@@ -17,20 +10,7 @@ options.add_argument("--headless")
 options.add_argument("--disable-dev-shm-usage")
 options.add_argument ("--no-sandbox")
 
-driver = webdriver.Chrome(executable_path=r'E:\SmartComp\Chrome Drivers\chromedriver.exe' ,options=options)
-
-
-# testing functions
-@shared_task(bind=True)
-def getData(self): 
-    print("Task Completed")
-    c = add(2,3)
-    return c
-
-@shared_task(bind=True)
-def add(self, a, b):
-    return a + b
-# testing functions end
+#driver = webdriver.Chrome(executable_path=r'E:\SmartComp\Chrome Drivers\chromedriver.exe' ,options=options)
 
 @shared_task(bind=True)
 def get_search_url(self, store, search):
@@ -48,19 +28,10 @@ def get_search_url(self, store, search):
         url = 'https://www.snapdeal.com/search?keyword=' + item
         return url
 
-@shared_task(bind=True)
-def get_offers(self):
-    offers_available = []
-    offers = driver.find_elements(
-        By.XPATH,
-        "//*[@class='_16eBzU col']"
-    )
-    for offer in offers:
-        offers_available.append(offer.text.strip())
-    return offers_available
     
 @shared_task(bind=True)
 def flipkart_primary_deal(self, search):
+    driver = webdriver.Chrome(executable_path=r'E:\SmartComp\Chrome Drivers\chromedriver.exe' ,options=options)
     url = get_search_url('flipkart', search)
     driver.get(url)
     top_item_link = driver.find_element(
@@ -153,12 +124,23 @@ def flipkart_primary_deal(self, search):
             "//*[@class='IMZJg1 Okf99z' or @class='IMZJg1']"
         )
         more_offers.click()
-        offers = get_offers()
-        print("clicked")
+        offers_available = []
+        offers = driver.find_elements(
+            By.XPATH,
+            "//*[@class='_16eBzU col']"
+        )
+        for offer in offers:
+            offers_available.append(offer.text.strip())
     except:
-        offers = get_offers()
-    deal_data['offers'] = offers
-    #deal_data = json.loads(str(deal_data)+'')
+        offers_available = []
+        offers = driver.find_elements(
+            By.XPATH,
+            "//*[@class='_16eBzU col']"
+        )
+        for offer in offers:
+            offers_available.append(offer.text.strip())
+    deal_data['offers'] = offers_available
+    driver.quit()
 
     print(deal_data)
 
@@ -167,7 +149,7 @@ def flipkart_primary_deal(self, search):
 
 @shared_task(bind=True)
 def flipkart_other_deals(self, search):
-    print("ppppppppppppppppppppppppppppppppppppppppppppppppppppp")
+    driver = webdriver.Chrome(executable_path=r'E:\SmartComp\Chrome Drivers\chromedriver.exe' ,options=options)
     item = search.replace(" ", "+")
     BASE_SEARCH_URL = "https://www.flipkart.com/search?q={}&otracker=search&otracker1=search&marketplace=FLIPKART&as-show=on&as=off&sort=relevance"
     url = BASE_SEARCH_URL.format(item)
@@ -186,97 +168,132 @@ def flipkart_other_deals(self, search):
         By.XPATH,
         "//*[@class='_4ddWXP']"
     )
+    driver.quit()
 
     if elements_type1:
-        all_deals = search_type_1(elements_type1)
+        all_deals = search_type_1(elements_type1, search)
     if elements_type2:
-        all_deals = search_type_2(elements_type2)
+        all_deals = search_type_2(elements_type2, search)
     if elements_type3:
-        all_deals = search_type_3(elements_type3)
+        all_deals = search_type_3(elements_type3, search)
     
     print(all_deals)
     return all_deals
 
 
 @shared_task(bind=True)
-def search_type_1(self, elements):
-    all_deals = []
+def search_type_1(self, elements, search):
+    driver = webdriver.Chrome(executable_path=r'E:\SmartComp\Chrome Drivers\chromedriver.exe' ,options=options)
+    item = search.replace(" ", "+")
+    BASE_SEARCH_URL = "https://www.flipkart.com/search?q={}&otracker=search&otracker1=search&marketplace=FLIPKART&as-show=on&as=off&sort=relevance"
+    url = BASE_SEARCH_URL.format(item)
+
+    driver.get(url)
+
+    companies = []
+    titles = []
+    prices = []
+    mrps = []
+    discounts = []
+    assured = []
+    imgs = []
+    item_links = []
+    ratings = []
+    ratings_count = []
+
     for element in elements:
-        deal = {}
         try:
             company = element.find_element(
                 By.XPATH,
                 ".//*[ @class='_2WkVRV' ]"
             ).text.strip()
-            deal['company'] = company
+            companies.append(company)
         except:
-            deal['company'] = None
+            companies.append(None)
         try:
             is_assured = element.find_element(
                 By.XPATH,
                 ".//*[@class='_1a8UBa']"
             )
-            deal['assured'] = 'true'
+            assured.append(True)
         except:
-            deal['assured'] = 'false'
+            assured.append(False)
         try:
             title = element.find_element(
                 By.XPATH,
                 ".//*[@class='IRpwTa' or @class='IRpwTa _2-ICcC']"
             ).text
-            deal['title'] = title
+            titles.append(title)
         except:
-            deal['title'] = None
+            titles.append(None)
 
         try:
             price = element.find_element(
                 By.XPATH,
                 ".//*[@class='_30jeq3']"
             ).text
-            deal['price'] = price
+            prices.append(price)
         except:
-            deal['price'] = None
+            prices.append(None)
         try:
             mrp = element.find_element(
                 By.XPATH,
                 ".//*[@class='_3I9_wc']"
             ).text
-            deal['mrp'] = mrp
+            mrps.append(mrp)
         except:
-            deal['mrp'] = mrp
+            mrps.append(None)
         try:
             discount = element.find_element(
                 By.XPATH,
                 ".//*[@class='_3Ay6Sb']"
             ).text[0:3]
-            deal['discount'] = discount
+            discounts.append(discount)
         except:
-            deal['discount'] = None
+            discounts.append(None)
         try:
             img = element.find_element(
                 By.XPATH,
                 ".//*[@class='_2r_T1I']"
             ).get_attribute('src')
-            deal['img'] = img
+            imgs.append(img)
         except:
-            deal['img'] = img
+            imgs.append(None)
         try:
             item_link = element.find_element(
                 By.XPATH,
                 ".//*[@class='_2UzuFa']"
             ).get_attribute('href')
-            deal['item_link'] = item_link
+            item_links.append(item_link)
         except:
-            deal['item_link'] = item_link
-        deal['rating'] = None
-        deal['no_of_rating'] = None
-        deal['description'] = None
-        all_deals.append(deal)
-        print("------------------------------------------------------------------------------------------------")
-    return all_deals
+            item_links.append(None)
+        ratings.append(None)
+        ratings_count.append(None)
+    
+    driver.quit()
+    
+    print(titles, companies, imgs, mrps, prices, discounts, ratings, ratings_count, assured, item_links, sep='\n')
+
+    data = {
+        'Product Title' : titles,
+        'Product Company' : companies,
+        'Image Link' : imgs,
+        'MRP' : mrps,
+        'Price' : prices,
+        'Discount %age' : discounts,
+        'Rating' : ratings,
+        'Reviews Count' : ratings_count,
+        'Is_Assured' : assured,
+        'Item URL' : item_links
+    }
+
+    print('\n\nConverting to DataFrame and printing it.\n\n')
+    df = pd.DataFrame(data)
+    return df.to_json()
+
 
 @shared_task(bind=True)
-def search_type_2(self, elements):
+def search_type_2(self, elements, search):
     all_deals = []
     for element in elements:
         deal = {}
@@ -371,8 +388,7 @@ def search_type_2(self, elements):
     return all_deals
 
 @shared_task(bind=True)
-def search_type_3(self, elements):
-    print("okokok")
+def search_type_3(self, elements, search):
     all_deals = []
     for element in elements:
         deal = {}
@@ -455,19 +471,14 @@ def search_type_3(self, elements):
 
 @shared_task(bind=True)
 def amazon_primary_deals(self, search):
+    driver = webdriver.Chrome(executable_path=r'E:\SmartComp\Chrome Drivers\chromedriver.exe' ,options=options)
     url = get_search_url('amazon', search)
     driver.get(url)
-    # soup = BeautifulSoup(driver.page_source, 'lxml').prettify()
-    # with open('page_source.html', 'wb') as f:
-    #     f.write(soup.encode('utf8'))
-    try:
-        top_item_link = driver.find_element(
-            by=By.XPATH,
-            value='//div[@data-component-type="s-search-result"]//div[contains(@class, "product-image")]//a'
-        ).get_attribute('href')
-        driver.get(top_item_link)
-    except:
-        return "No deal found"
+    top_item_link = driver.find_element(
+        by=By.XPATH,
+        value='//div[@data-component-type="s-search-result"]//div[contains(@class, "product-image")]//a'
+    ).get_attribute('href')
+    driver.get(top_item_link)
 
     deal_data = {}
 
@@ -563,6 +574,7 @@ def amazon_primary_deals(self, search):
     if len(offer_wrappers) == 0:
         offers = [re.sub(r'(<a[^<]*>.+</a>)|(<[^>]+>)', '', li.get_attribute('innerHTML')).strip() for li in driver.find_elements(by=By.XPATH, value="//div[@id='quickPromoBucketContent']//li")]
     deal_data['offers'] = offers
+    driver.quit()
 
     print(deal_data)
 
@@ -570,6 +582,7 @@ def amazon_primary_deals(self, search):
 
 @shared_task(bind=True)
 def amazon_other_deals(self, search):
+    driver = webdriver.Chrome(executable_path=r'E:\SmartComp\Chrome Drivers\chromedriver.exe' ,options=options)
     url = get_search_url('amazon', search)
     driver.get(url)
 
@@ -662,6 +675,7 @@ def amazon_other_deals(self, search):
 
 @shared_task(bind=True)
 def snapdeal_primary_deal(self, search):
+    driver = webdriver.Chrome(executable_path=r'E:\SmartComp\Chrome Drivers\chromedriver.exe' ,options=options)
     url = get_search_url('snapdeal', search)
     driver.get(url)
 
@@ -734,6 +748,7 @@ def snapdeal_primary_deal(self, search):
             text = text.replace(child_text, '').strip()
         offers.append(text)
     deal_data['offers'] = offers
+    driver.quit()
 
     print(deal_data)
 
@@ -742,6 +757,7 @@ def snapdeal_primary_deal(self, search):
 
 @shared_task(bind=True)
 def snapdeal_other_deals(self, search):
+    driver = webdriver.Chrome(executable_path=r'E:\SmartComp\Chrome Drivers\chromedriver.exe' ,options=options)
     url = get_search_url('snapdeal', search)
     driver.get(url)
     rows = driver.find_elements(by=By.XPATH, value="//section[.//div[contains(@class,'product-tuple-listing')]]")
