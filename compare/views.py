@@ -161,14 +161,14 @@ class AjaxHandlerView(View):
             elif store == 'amazon':
                 data = amazon_primary_deals.delay(search)
             elif store == 'snapdeal':
-                pass
+                data = snapdeal_primary_deal.delay(search)
         elif req_data == 'other':
             if store == 'flipkart':
                 data = flipkart_other_deals.delay(search)
             elif store == 'amazon':
-                pass
+                data = amazon_other_deals.delay(search)
             elif store == 'snapdeal':
-                pass
+                data = snapdeal_other_deals.delay(search)
         
         return JsonResponse(data.get(), status=200, safe=False)
             
