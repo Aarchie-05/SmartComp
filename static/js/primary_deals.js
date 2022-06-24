@@ -3,7 +3,7 @@ $(document).ready(function() {
     $.ajax({
       url: 'data',
       type: 'get',
-      data: { search: 'tshirt', store: 'flipkart', req_data: 'primary'}
+      data: { search: 'gowns', store: 'flipkart', req_data: 'primary'}
     })
     .done((res) => {
       console.log("Flipkart primary deal recieved");
@@ -43,7 +43,7 @@ $(document).ready(function() {
     $.ajax({
       url: 'data',
       type: 'get',
-      data: { search: 'tshirt', store: 'amazon', req_data: 'primary'}
+      data: { search: 'gowns', store: 'amazon', req_data: 'primary'}
     })
     .done((res) => {
       console.log("Amazon primary deal recieved");
@@ -65,10 +65,10 @@ $(document).ready(function() {
       $("#primary_discount_amz").append(res.data['discount']);
       $("#primary_offers_amz").append(offers);
       if(res.data['type']=="prime") {
-        var assured = `<img src="{% static 'images/prime 1.png' %}" alt="" class="center prime">`
+        var assured = `<img src="../static/images/prime 1.png" alt="" class="center prime">`
         $("#primary_prime_amz").append(assured);
       } else if(res.data['type'] == "fresh") {
-        var fresh = `<img src="{% static 'images/amazon fresh.svg' %}" alt="" class="center prime">`
+        var fresh = `<img src="../static/images/amazon fresh.svg" alt="" class="center prime">`
         $("#primary_prime_amz").append(fresh);
       } else {
         $("#primary_prime_amz").append(`<br><br>`);
@@ -85,7 +85,7 @@ $(document).ready(function() {
     $.ajax({
       url: 'data',
       type: 'get',
-      data: { search: 'tshirt', store: 'snapdeal', req_data: 'primary'}
+      data: { search: 'gowns', store: 'snapdeal', req_data: 'primary'}
     })
     .done((res) => {
       console.log("Snapdeal primary deal recieved");

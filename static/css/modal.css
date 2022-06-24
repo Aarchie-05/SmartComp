@@ -141,3 +141,18 @@
       margin-bottom: 20px;
     }
   }
+
+  .closeS {
+    color: #000;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    margin-left: 40px;
+}
+
+.closeS:hover,
+.closeS:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}

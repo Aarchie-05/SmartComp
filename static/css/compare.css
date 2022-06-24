@@ -157,6 +157,12 @@
       height: 40px;
       margin-left: 7px;
   }
+  .snapdeal {
+    height: 67px;
+    margin-top: -16px;
+    margin-bottom: -5px;
+    margin-left: 7px;
+}
   .change-deal {
       float: right;
       margin-top: 3px;
