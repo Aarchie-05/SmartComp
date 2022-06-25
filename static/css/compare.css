@@ -34,15 +34,12 @@
   
   /* side nav bar */
   .sidenav {
+    padding-left: 10px;
     height: 100%;
-    width: 260px;
-    position: fixed;
-    z-index: 1;
-    top: 100px;
-    left: 0;
+    width: 12%;
     background-color: #fafafa;
-    overflow-x: hidden;
     padding-top: 20px;
+    float: left;
   }
   .sidenav a {
     padding: 6px 6px 6px 32px;
@@ -61,8 +58,9 @@
   
   /* main section */
   .main {  
-    margin-left: 260px;
-    width: 80%;
+    margin-left: 12%;
+    width: 100%;
+    float: right;
   }
   
   .price-range .form-control {
@@ -186,6 +184,7 @@
   }
   .deal {
     padding: 0;
+    width: 100%;
   }
   .deal-data hr {
     margin: 25px 10px;
@@ -195,10 +194,11 @@
     padding: 8px;
     height: 60px;
   }
-  .change-deal-btn {
+  .close-deal-btn, .change-deal-btn {
+    outline: none;
     float: right;
     border: none;
-    margin: 7px;
+    margin: 10px;
   }
   .smartcomp-logo {
     padding: 0;
@@ -242,4 +242,20 @@
 
 .tt:hover .ttt {
   visibility: visible;
+}
+
+.sidenav label{
+  cursor: pointer;
+  margin: 0;
+}
+
+.change-deal-btn img{
+  height: 20px;
+}
+.close-deal-btn img{
+  height: 24px;
+}
+#stores{
+  position: sticky;
+  top: 0;
 }

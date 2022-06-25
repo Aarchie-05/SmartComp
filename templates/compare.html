@@ -48,32 +48,17 @@
         </nav>
     </div>
 
-
+    <div class="row">
     <!-- SIDE NAVBAR -->
+
     <div class="sidenav">
-        <a href="#">Clear all Filters</a>
-        <a href="#"></a>
-        <a href="#"><b>Store</b></a>
-        <div class="stores">
+        <div id="stores">
+            <a href="#"><b>Store</b></a>
             <form action="">
                 <div class="d-flex flex-column bd-highlight mb-3 ml-4">
-                    <div class="p-2 bd-highlight"><input type="checkbox"> Amazon</div>
-                    <div class="p-2 bd-highlight"><input type="checkbox"> Flipkart</div>
-                    <div class="p-2 bd-highlight"><input type="checkbox"> Myntra</div>
-                </div>
-            </form>
-        </div>
-        <a href="#"><b>Price Range</b></a>
-        <div class="price-range " width="40">
-            <form action="/compare" method="get">
-                <div class="d-flex flex-column bd-highlight mb-3 ml-4 form-group">
-                    <div class="p-2 bd-highlight"><input type="text" class="form-control"> 
-                        <span class="ml-4 span-it">to</span>
-                        <input type="number" class="form-control">
-                    </div>
-                    <div class="p-2 bd-highlight">
-                        <button type="button" class="btn btn-success btn-sm">Apply</button>
-                    </div>
+                    <div class="p-2 bd-highlight"><label><input type="checkbox"> Amazon</label></div>
+                    <div class="p-2 bd-highlight"><label><input type="checkbox"> Flipkart</label></div>
+                    <div class="p-2 bd-highlight"><label><input type="checkbox"> Snapdeal</label></div>
                 </div>
             </form>
         </div>
@@ -81,12 +66,13 @@
 
     <!-- MAIN SECTION -->
     <div class="main">
-        <div class="wrapper">
+        <div class="wrapper" style="width: 100%;">
             <div class="row">
                 <!-- AMAZON -->
                 <div class="col-4 column deal">
                     <div class="store-logo">
                         <img src="{% static 'images/Amazon logo.png' %}" alt="amazon" class="amazon">
+                        <button class="close-deal-btn"><img src="{% static 'images/close.svg' %}"/></button>
                         <button id="myBtn" class="change-deal-btn"><img src="{% static 'images/change deal.svg' %}"
                                 alt=""></button>
                         <!-- The Modal -->
@@ -167,7 +153,8 @@
                 <div class="col-4 column deal">
                     <div class="store-logo">
                         <img src="{% static 'images/Flipkart logo.png' %}" alt="flipkart" class="flipkart">
-                        <button id="myBtnF" class="change-deal"><img src="{% static 'images/change deal.svg' %}"
+                        <button class="close-deal-btn"><img src="{% static 'images/close.svg' %}"/></button>
+                        <button id="myBtn" class="change-deal-btn"><img src="{% static 'images/change deal.svg' %}"
                                 alt=""></button>
                         <!-- The Modal -->
                         <div id="myModalF" class="modal-1">
@@ -249,7 +236,8 @@
                 <div class="col-4 column deal">
                     <div class="store-logo">
                         <img src="{% static 'images/snapdeal logo.png' %}" alt="snapdeal" class="myntra">
-                        <button id="myBtnS" class="change-deal"><img src="{% static 'images/change deal.svg' %}"
+                        <button class="close-deal-btn"><img src="{% static 'images/close.svg' %}"/></button>
+                        <button id="myBtn" class="change-deal-btn"><img src="{% static 'images/change deal.svg' %}"
                                 alt=""></button>
                         <!-- The Modal -->
                         <div id="myModalS" class="modal-1">
@@ -365,6 +353,7 @@
                 </div> -->
             </div>
         </div>
+    </div>
     </div>
     <script src="{% static 'js/script.js' %}"></script>
     <script src="{% static 'js/primary_deals.js' %}"></script>
