@@ -83,7 +83,7 @@
     <div class="main">
         <div class="wrapper">
             <div class="row">
-                <!-- AMAZON DEAL -->
+                <!-- AMAZON -->
                 <div class="col-4 column deal">
                     <div class="store-logo">
                         <img src="{% static 'images/Amazon logo.png' %}" alt="amazon" class="amazon">
@@ -91,8 +91,6 @@
                                 alt=""></button>
                         <!-- The Modal -->
                         <div id="myModal" class="modal-1">
-
-                            <!-- Modal content -->
                             <div class="modal-content-1">
                                 <div class="modal-header-1">
                                     <div class="row">
@@ -121,8 +119,8 @@
                         <!-- <a href=""><i class="fa fa-close close-deal remove" style="font-size: 24px;"></i></a> -->
                     </div>
                     <!-- AMAZON PRIMARY DEAL -->
-                    <div class="deal-data" id="amazon-primary">
-                        <div>
+                    <div id="amazon-primary">
+                        <div class="deal-data" style="display: none;">
                             <img src="" alt="" class="center" height="300px" id="primary_img_amz">
                             <hr>
                             <div class="deal-display">
@@ -152,6 +150,16 @@
                                     </ul>
                                 </div>
                             </div>
+                        </div>
+                        <div class="no-deal-found" style="display: none; margin-top: 100px;">
+                            <img src="{% static 'images/no deal found illustration.png' %}" alt="" class="center">
+                            <div class="text mt-4">
+                                <p class="center">Oops! No deal Found.</p>
+                                <p class="center">Try adding another keyword.</p>
+                            </div>
+                        </div>
+                        <div class="loading" style="margin-top: 220px; margin-bottom: 380px;">
+                            <img class="center" height="40px" src="{% static 'images/loading.gif' %}"/>
                         </div>
                     </div>
                 </div>
@@ -191,8 +199,8 @@
                         <!-- <a href=""><i class="fa fa-close close-deal remove" style="font-size: 24px;"></i></a> -->
                     </div>
                     <!-- FLIPKART PRIMARY DEALS -->
-                    <div class="deal-data" id="flipkart-primary">
-                        <div>
+                    <div id="flipkart-primary">
+                        <div class="deal-data" style="display: none;">
                             <img src="" alt="" class="center" height="300px" id="primary_img_flip">
                             <hr>
                             <div class="deal-display">
@@ -224,6 +232,16 @@
                                     </ul>
                                 </div>
                             </div>
+                        </div>
+                        <div class="no-deal-found" style="display: none; margin-top: 100px;">
+                            <img src="{% static 'images/no deal found illustration.png' %}" alt="" class="center">
+                            <div class="text mt-4">
+                                <p class="center">Oops! No deal Found.</p>
+                                <p class="center">Try adding another keyword.</p>
+                            </div>
+                        </div>
+                        <div class="loading" style="margin-top: 220px; margin-bottom: 380px;">
+                            <img class="center" height="40px" src="{% static 'images/loading.gif' %}"/>
                         </div>
                     </div>
                 </div>
@@ -262,8 +280,8 @@
                         </div>
                         <!-- <a href=""><i class="fa fa-close close-deal remove" style="font-size: 24px;"></i></a> -->
                     </div>
-                    <div class="deal-data" id="snapdeal-primary">
-                        <div>
+                    <div id="snapdeal-primary">
+                        <div class="deal-data" style="display: none;">
                             <img src="" alt="" class="center" height="300px" id="primary_img_snap">
                             <hr>
                             <div class="deal-display">
@@ -289,6 +307,16 @@
                                     
                                 </div>
                             </div>
+                        </div>
+                        <div class="no-deal-found" style="display: none; margin-top: 100px;">
+                            <img src="{% static 'images/no deal found illustration.png' %}" alt="" class="center">
+                            <div class="text mt-4">
+                                <p class="center">Oops! No deal Found.</p>
+                                <p class="center">Try adding another keyword.</p>
+                            </div>
+                        </div>
+                        <div class="loading" style="margin-top: 220px; margin-bottom: 380px;">
+                            <img class="center" height="40px" src="{% static 'images/loading.gif' %}"/>
                         </div>
                     </div>
                 </div>

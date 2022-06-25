@@ -1,17 +1,21 @@
-// flipkart-primary
 $(document).ready(function() {
-    $.ajax({
-      url: 'data',
-      type: 'get',
-      data: { search: 'gowns', store: 'flipkart', req_data: 'primary'}
-    })
-    .done((res) => {
-      console.log("Flipkart primary deal recieved");
-      console.log(res);
-      console.log(res.data['item_link']);
 
+  var url_string = window.location.href;
+  var url = new URL(url_string);
+  var search_item = url.searchParams.get("search_item");
+
+  // Flipkart
+  $.ajax({
+    url: 'data',
+    type: 'get',
+    data: { search: search_item, store: 'flipkart', req_data: 'primary'}
+  })
+  .done((res) => {
+    console.log("Flipkart Primary Deal Scraped");
+    $("#flipkart-primary .loading").css({"display":"none"});
+    if(res.deal_found == true){
+      $("#flipkart-primary .deal-data").css({"display":"block"});
       const numOfKeys = Object.keys(res.data['offers']).length;
-      console.log(numOfKeys);
       var offers = "";
       for(var i=0; i<numOfKeys; ++i){
         var li = "<li>" + res.data['offers'][i] + "</li>";
@@ -31,29 +35,33 @@ $(document).ready(function() {
       } else {
         $("#primary_assured_flip").append(`<br>`);
       }
-    })
-    .fail((err) => {
-      console.log('Flipkart primary data Error');
-      console.log(err.responseText);
-    });
+    } else{
+      $("#flipkart-primary .no-deal-found").css({"display":"block"});
+    }
+  })
+  .fail((err) => {
+    console.log('Flipkart Primary Deal Error');
+    console.log(err.responseText);
+    $("#flipkart-primary .loading").css({"display":"none"});
+    $("#flipkart-primary .no-deal-found").css({"display":"block"});
   });
-  
-  // amazon-primary
-  $(document).ready(function() {
-    $.ajax({
-      url: 'data',
-      type: 'get',
-      data: { search: 'gowns', store: 'amazon', req_data: 'primary'}
-    })
-    .done((res) => {
-      console.log("Amazon primary deal recieved");
-      console.log(res);
-      console.log(res.data['item_link']);
+
+  // Amazon
+  $.ajax({
+    url: 'data',
+    type: 'get',
+    data: { search: search_item, store: 'amazon', req_data: 'primary'}
+  })
+  .done((res) => {
+    console.log("Amazon Primary Deal Scraped");
+
+    $("#amazon-primary .loading").css({"display":"none"});
+    if(res.deal_found == true){
+      $("#amazon-primary .deal-data").css({"display":"block"});
 
       offers = ""
       for (var key of Object.keys(res.data['offers'])) {
         offers += "<li><b>" + key + "</b> : " + res.data['offers'][key] + "</li>";
-        console.log(key + " -> " + res.data['offers'][key])
       }
       
       $("#primary_img_amz").attr("src", res.data['img']);
@@ -73,27 +81,29 @@ $(document).ready(function() {
       } else {
         $("#primary_prime_amz").append(`<br><br>`);
       }
-    })
-    .fail((err) => {
-      console.log('Amazon error');
-      console.log(err.responseText);
-    });
+    } else {
+      $("#amazon-primary .no-deal-found").css({"display":"block"});
+    }
+  })
+  .fail((err) => {
+    console.log('Amazon Primary Deal Error');
+    console.log(err.responseText);
+    $("#amazon-primary .loading").css({"display":"none"});
+    $("#amazon-primary .no-deal-found").css({"display":"block"});
   });
-  
-  // snapdeal-primary
-  $(document).ready(function() {
-    $.ajax({
-      url: 'data',
-      type: 'get',
-      data: { search: 'gowns', store: 'snapdeal', req_data: 'primary'}
-    })
-    .done((res) => {
-      console.log("Snapdeal primary deal recieved");
-      console.log(res);
-      console.log(res.data['item_link']);
 
+  // Snapdeal
+  $.ajax({
+    url: 'data',
+    type: 'get',
+    data: { search: search_item, store: 'snapdeal', req_data: 'primary'}
+  })
+  .done((res) => {
+    console.log("Snapdeal Primary Deal Scraped");
+    $("#snapdeal-primary .loading").css({"display":"none"});
+    if(res.deal_found == true){
+      $("#snapdeal-primary .deal-data").css({"display":"block"});
       const numOfKeys = Object.keys(res.data['offers']).length;
-      console.log(numOfKeys);
       var offers = "";
       for(var i=0; i<numOfKeys; ++i){
         var li = "<li>" + res.data['offers'][i] + "</li>";
@@ -115,9 +125,14 @@ $(document).ready(function() {
             </ul>`;
         $("#primary_offers_snap").append(disp);
       }
-    })
-    .fail((err) => {
-      console.log('error');
-      console.log(err.responseText);
-    });
+    } else {
+      $("#snapdeal-primary .no-deal-found").css({"display":"block"});
+    }
+  })
+  .fail((err) => {
+    console.log('Snapdeal Primary Deal Error');
+    console.log(err.responseText);
+    $("#snapdeal-primary .loading").css({"display":"none"});
+    $("#snapdeal-primary .no-deal-found").css({"display":"block"});
   });
+});

@@ -3,6 +3,7 @@ from celery import shared_task
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import pandas as pd
+from bs4 import BeautifulSoup
 
 options = webdriver. ChromeOptions()
 options.add_argument("- incognito")
@@ -542,8 +543,9 @@ def amazon_primary_deals(self, search):
     url = get_search_url('amazon', search)
     driver.get(url)
     deal_data = {}
-    primary_deal = driver.find_element(by=By.XPATH,
-                                       value='//div[@data-component-type="s-search-result"]')
+    
+    primary_deal = driver.find_element(by=By.XPATH, value='//div[@data-component-type="s-search-result"]')
+    
     try:
         primary_deal.find_element(by=By.XPATH, value='.//i[@aria-label="Amazon Prime"]')
         deal_data['type'] = "prime"
