@@ -49,323 +49,325 @@
     </div>
 
     <div class="row">
-    <!-- SIDE NAVBAR -->
+        <!-- SIDE NAVBAR -->
 
-    <div class="sidenav">
-        <div id="stores">
-            <a href="#"><b>Store</b></a>
-            <form action="">
-                <div class="d-flex flex-column bd-highlight mb-3 ml-4">
-                    <div class="p-2 bd-highlight"><label><input type="checkbox"> Amazon</label></div>
-                    <div class="p-2 bd-highlight"><label><input type="checkbox"> Flipkart</label></div>
-                    <div class="p-2 bd-highlight"><label><input type="checkbox"> Snapdeal</label></div>
-                </div>
-            </form>
+        <div class="sidenav sticky-top">
+            <div class="sticky-top">
+                <a href="#"><b>Store</b></a>
+                <form action="">
+                    <div class="d-flex flex-column bd-highlight mb-3 ml-4">
+                        <div class="p-2 bd-highlight"><label><input type="checkbox"> Amazon</label></div>
+                        <div class="p-2 bd-highlight"><label><input type="checkbox"> Flipkart</label></div>
+                        <div class="p-2 bd-highlight"><label><input type="checkbox"> Snapdeal</label></div>
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
 
-    <!-- MAIN SECTION -->
-    <div class="main">
-        <div class="wrapper" style="width: 100%;">
-            <div class="row">
-                <!-- AMAZON -->
-                <div class="col-4 column deal">
-                    <div class="store-logo">
-                        <img src="{% static 'images/Amazon logo.png' %}" alt="amazon" class="amazon">
-                        <button class="close-deal-btn"><img src="{% static 'images/close.svg' %}"/></button>
-                        <button id="myBtn" class="change-deal-btn"><img src="{% static 'images/change deal.svg' %}"
-                                alt=""></button>
-                        <!-- The Modal -->
-                        <div id="myModal" class="modal-1">
-                            <div class="modal-content-1">
-                                <div class="modal-header-1">
-                                    <div class="row">
-                                        <div class="" style="margin-top: 30px; margin-left: 30px">
-                                            <img src="{% static 'images/Amazon logo.png' %}" alt=""
-                                                class="amazon mt-1"><span style="font-size: 25px"> - Change Deal</span>
-                                        </div>
-                                        <div class="search-change-deal">
-                                            <form action="">
-                                                <input type="text" name="" id="" class="search-input"
-                                                    placeholder="Search the URL">
-                                                <span class="close">&times;</span>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <hr color="black">
-                                </div>
-                                <div class="modal-body-1">
-                                    <div class="row1" id="amazon-other">
-                                        <!-- AMAZON OTHER DEALS -->
-                                    </div>
-                                </div>
-                            </div>
-
+        <!-- MAIN SECTION -->
+        <div class="main">
+            <div class="wrapper" style="width: 100%;">
+                <div class="row">
+                    <!-- AMAZON -->
+                    <div class="col-4 column deal">
+                        <div class="store-logo sticky-top">
+                            <img src="{% static 'images/Amazon logo.png' %}" alt="amazon" class="amazon">
+                            <button class="close-deal-btn"><img src="{% static 'images/close.svg' %}"/></button>
+                            <button id="myBtn" class="change-deal-btn"><img src="{% static 'images/change deal.svg' %}"
+                                    alt=""></button>
+                            
+                            <!-- <a href=""><i class="fa fa-close close-deal remove" style="font-size: 24px;"></i></a> -->
                         </div>
-                        <!-- <a href=""><i class="fa fa-close close-deal remove" style="font-size: 24px;"></i></a> -->
-                    </div>
-                    <!-- AMAZON PRIMARY DEAL -->
-                    <div id="amazon-primary">
-                        <div class="deal-data" style="display: none;">
-                            <img src="" alt="" class="center" height="300px" id="primary_img_amz">
-                            <hr>
-                            <div class="deal-display">
-                                <center>
-                                    <p class="product-title"><span id="primary_title_amz"></span></p>
-                                </center>
-                                <div class="btn-group center product-ratings">
-                                    <span class="rating-values"><span id="primary_rating_amz"></span> <span class="fa fa-star"
-                                            style="color: green"></span><span class="seprator"></span><span id="primary_rating_count__amz"></span> Ratings</span>
-                                </div>
-                                <center>
-                                    <p class="mt-2">
-                                        <s class="product-mrp">M.R.P: <span id="primary_mrp_amz"></span> </s>
-                                        <span class="product-price"
-                                            style="color: maroon; font-size: 20px;"><span id="primary_price_amz"></span></span>&nbsp;
-                                        <span class="product-discount" style="color: green">(<span id="primary_discount_amz"></span>)</span>
-                                    </p>
-                                </center>
-                                <div id="primary_prime_amz">
-                                    
-                                </div>
+                        <!-- AMAZON PRIMARY DEAL -->
+                        <div id="amazon-primary">
+                            <div class="deal-data" style="display: none;">
+                                <img src="" alt="" class="center" height="300px" id="primary_img_amz">
                                 <hr>
-                                <div class="product-offers">
-                                    <p class="center">Offers</p>
-                                    <ul id="primary_offers_amz">
+                                <div class="deal-display">
+                                    <center>
+                                        <p class="product-title"><span id="primary_title_amz"></span></p>
+                                    </center>
+                                    <div class="btn-group center product-ratings">
+                                        <span class="rating-values"><span id="primary_rating_amz"></span> <span class="fa fa-star"
+                                                style="color: green"></span><span class="seprator"></span><span id="primary_rating_count__amz"></span> Ratings</span>
+                                    </div>
+                                    <center>
+                                        <p class="mt-2">
+                                            <s class="product-mrp">M.R.P: <span id="primary_mrp_amz"></span> </s>
+                                            <span class="product-price"
+                                                style="color: maroon; font-size: 20px;"><span id="primary_price_amz"></span></span>&nbsp;
+                                            <span class="product-discount" style="color: green">(<span id="primary_discount_amz"></span>)</span>
+                                        </p>
+                                    </center>
+                                    <div id="primary_prime_amz">
                                         
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="no-deal-found" style="display: none; margin-top: 100px;">
-                            <img src="{% static 'images/no deal found illustration.png' %}" alt="" class="center">
-                            <div class="text mt-4">
-                                <p class="center">Oops! No deal Found.</p>
-                                <p class="center">Try adding another keyword.</p>
-                            </div>
-                        </div>
-                        <div class="loading" style="margin-top: 220px; margin-bottom: 380px;">
-                            <img class="center" height="40px" src="{% static 'images/loading.gif' %}"/>
-                        </div>
-                    </div>
-                </div>
-                <!-- FLIPKART DEAL -->
-                <div class="col-4 column deal">
-                    <div class="store-logo">
-                        <img src="{% static 'images/Flipkart logo.png' %}" alt="flipkart" class="flipkart">
-                        <button class="close-deal-btn"><img src="{% static 'images/close.svg' %}"/></button>
-                        <button id="myBtn" class="change-deal-btn"><img src="{% static 'images/change deal.svg' %}"
-                                alt=""></button>
-                        <!-- The Modal -->
-                        <div id="myModalF" class="modal-1">
-                            <!-- Modal content -->
-                            <div class="modal-content-1">
-                                <div class="modal-header-1">
-                                    <div class="row">
-                                        <div class="" style="margin-top: 30px; margin-left: 30px">
-                                            <img src="{% static 'images/Flipkart logo.png' %}" alt="" class="flipkart"><span
-                                                style="font-size: 25px"> - Change Deal</span>
-                                        </div>
-                                        <div class="search-change-deal">
-                                            <form action="">
-                                                <input type="text" name="" id="" class="search-input"
-                                                    placeholder="Search the URL">
-                                                <span class="closeF">&times;</span>
-                                            </form>
-                                        </div>
                                     </div>
-                                    <hr color="black">
-                                </div>
-                                <div class="modal-body-1">
-                                    <div class="row1" id="flipkart-other">
-                                        <!-- FLIPKART OTHER DEALS -->
+                                    <hr>
+                                    <div class="product-offers">
+                                        <p class="center">Offers</p>
+                                        <ul id="primary_offers_amz">
+                                            
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
+                            <div class="no-deal-found" style="display: none; margin-top: 100px;">
+                                <img src="{% static 'images/no deal found illustration.png' %}" alt="" class="center">
+                                <div class="text mt-4">
+                                    <p class="center">Oops! No deal Found.</p>
+                                    <p class="center">Try adding another keyword.</p>
+                                </div>
+                            </div>
+                            <div class="loading" style="margin-top: 220px; margin-bottom: 380px;">
+                                <img class="center" height="40px" src="{% static 'images/loading.gif' %}"/>
+                            </div>
                         </div>
-                        <!-- <a href=""><i class="fa fa-close close-deal remove" style="font-size: 24px;"></i></a> -->
                     </div>
-                    <!-- FLIPKART PRIMARY DEALS -->
-                    <div id="flipkart-primary">
-                        <div class="deal-data" style="display: none;">
-                            <img src="" alt="" class="center" height="300px" id="primary_img_flip">
-                            <hr>
-                            <div class="deal-display">
-                                <center>
-                                    <p class="product-title"><span id="primary_title_flip"></span></p>
-                                </center>
-                                <div class="center product-ratings" style="border-color: red">
-                                    <span class="rating-values"><span class="primary_rating_flip"></span> <span class="fa fa-star"
-                                            style="color: green"></span><span
-                                            class="seprator"></span><span id="primary_rating_count_flip"></span> Ratings</span>
-                                </div>
-                                <center>
-                                    <p class="mt-2">
-                                        <s class="product-mrp">M.R.P: <span id="primary_mrp_flip"></span> </s>
-                                        <span class="product-price"
-                                            style="color: maroon; font-size: 20px;"><span id="primary_price_flip"></span></span>&nbsp;
-                                        <span class="product-discount" style="color: green">(<span id="primary_discount_flip"></span>)</span>
-                                    </p>
-                                </center>
-                                <div id="primary_assured_flip">
-                                    
-                                </div>
-                                <br>
+                    <!-- FLIPKART DEAL -->
+                    <div class="col-4 column deal">
+                        <div class="store-logo sticky-top">
+                            <img src="{% static 'images/Flipkart logo.png' %}" alt="flipkart" class="flipkart">
+                            <button class="close-deal-btn"><img src="{% static 'images/close.svg' %}"/></button>
+                            <button id="myBtn" class="change-deal-btn"><img src="{% static 'images/change deal.svg' %}"
+                                    alt=""></button>
+                            <!-- <a href=""><i class="fa fa-close close-deal remove" style="font-size: 24px;"></i></a> -->
+                        </div>
+                        <!-- FLIPKART PRIMARY DEALS -->
+                        <div id="flipkart-primary">
+                            <div class="deal-data" style="display: none;">
+                                <img src="" alt="" class="center" height="300px" id="primary_img_flip">
                                 <hr>
-                                <div class="product-offers" id="primary_offers_flip">
-                                    <p class="center">Offers</p>
-                                    <ul id="primary_offers_flip">
+                                <div class="deal-display">
+                                    <center>
+                                        <p class="product-title"><span id="primary_title_flip"></span></p>
+                                    </center>
+                                    <div class="center product-ratings" style="border-color: red">
+                                        <span class="rating-values"><span class="primary_rating_flip"></span> <span class="fa fa-star"
+                                                style="color: green"></span><span
+                                                class="seprator"></span><span id="primary_rating_count_flip"></span> Ratings</span>
+                                    </div>
+                                    <center>
+                                        <p class="mt-2">
+                                            <s class="product-mrp">M.R.P: <span id="primary_mrp_flip"></span> </s>
+                                            <span class="product-price"
+                                                style="color: maroon; font-size: 20px;"><span id="primary_price_flip"></span></span>&nbsp;
+                                            <span class="product-discount" style="color: green">(<span id="primary_discount_flip"></span>)</span>
+                                        </p>
+                                    </center>
+                                    <div id="primary_assured_flip">
                                         
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="no-deal-found" style="display: none; margin-top: 100px;">
-                            <img src="{% static 'images/no deal found illustration.png' %}" alt="" class="center">
-                            <div class="text mt-4">
-                                <p class="center">Oops! No deal Found.</p>
-                                <p class="center">Try adding another keyword.</p>
-                            </div>
-                        </div>
-                        <div class="loading" style="margin-top: 220px; margin-bottom: 380px;">
-                            <img class="center" height="40px" src="{% static 'images/loading.gif' %}"/>
-                        </div>
-                    </div>
-                </div>
-                <!-- SNAPDEAL DEAL -->
-                <div class="col-4 column deal">
-                    <div class="store-logo">
-                        <img src="{% static 'images/snapdeal logo.png' %}" alt="snapdeal" class="myntra">
-                        <button class="close-deal-btn"><img src="{% static 'images/close.svg' %}"/></button>
-                        <button id="myBtn" class="change-deal-btn"><img src="{% static 'images/change deal.svg' %}"
-                                alt=""></button>
-                        <!-- The Modal -->
-                        <div id="myModalS" class="modal-1">
-                            <!-- Modal content -->
-                            <div class="modal-content-1">
-                                <div class="modal-header-1">
-                                    <div class="row">
-                                        <div class="" style="margin-top: 26px; margin-left: 30px">
-                                            <img src="{% static 'images/snapdeal logo.png' %}" alt="" height="35px"><span
-                                                style="font-size: 25px"> - Change Deal</span>
-                                        </div>
-                                        <div class="search-change-deal">
-                                            <form action="">
-                                                <input type="text" name="" id="" class="search-input"
-                                                    placeholder="Search the URL">
-                                                <span class="closeS">&times;</span>
-                                            </form>
-                                        </div>
                                     </div>
-                                    <hr color="black">
-                                </div>
-                                <div class="modal-body-1">
-                                    <div class="row1" id="snapdeal-other">
-                                        <!-- SNAPDEAL OTHER DEALS -->
+                                    <br>
+                                    <hr>
+                                    <div class="product-offers" id="primary_offers_flip">
+                                        <p class="center">Offers</p>
+                                        <ul id="primary_offers_flip">
+                                            
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- <a href=""><i class="fa fa-close close-deal remove" style="font-size: 24px;"></i></a> -->
-                    </div>
-                    <div id="snapdeal-primary">
-                        <div class="deal-data" style="display: none;">
-                            <img src="" alt="" class="center" height="300px" id="primary_img_snap">
-                            <hr>
-                            <div class="deal-display">
-                                <center>
-                                    <p class="product-title"><span id="primary_title_snap"></span></p>
-                                </center>
-                                <div class="center product-ratings" style="border-color: red">
-                                    <span class="rating-values"><span id="primary_rating_snap"></span> <span class="fa fa-star"
-                                            style="color: green"></span><span class="seprator"></span><span id="primary_rating_count_snap"></span> Ratings</span>
+                            <div class="no-deal-found" style="display: none; margin-top: 100px;">
+                                <img src="{% static 'images/no deal found illustration.png' %}" alt="" class="center">
+                                <div class="text mt-4">
+                                    <p class="center">Oops! No deal Found.</p>
+                                    <p class="center">Try adding another keyword.</p>
                                 </div>
-                                <center>
-                                    <p class="mt-2">
-                                        <s class="product-mrp">M.R.P: <span id="primary_mrp_snap"></span> </s>
-                                        <span class="product-price"
-                                            style="color: maroon; font-size: 20px;"><span id="primary_price_snap"></span></span>&nbsp;
-                                        <span class="product-discount" style="color: green">(<span id="primary_discount_snap"></span>)</span>
-                                    </p>
-                                </center>
-                                <br>
-                                <br>
+                            </div>
+                            <div class="loading" style="margin-top: 220px; margin-bottom: 380px;">
+                                <img class="center" height="40px" src="{% static 'images/loading.gif' %}"/>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- SNAPDEAL DEAL -->
+                    <div class="col-4 column deal">
+                        <div class="store-logo sticky-top">
+                            <img src="{% static 'images/snapdeal logo.png' %}" alt="snapdeal" class="myntra">
+                            <button class="close-deal-btn"><img src="{% static 'images/close.svg' %}"/></button>
+                            <button id="myBtn" class="change-deal-btn"><img src="{% static 'images/change deal.svg' %}"
+                                    alt=""></button>
+                            
+                            <!-- <a href=""><i class="fa fa-close close-deal remove" style="font-size: 24px;"></i></a> -->
+                        </div>
+                        <div id="snapdeal-primary">
+                            <div class="deal-data" style="display: none;">
+                                <img src="" alt="" class="center" height="300px" id="primary_img_snap">
                                 <hr>
-                                <div class="product-offers" id="primary_offers_snap">
-                                    
+                                <div class="deal-display">
+                                    <center>
+                                        <p class="product-title"><span id="primary_title_snap"></span></p>
+                                    </center>
+                                    <div class="center product-ratings" style="border-color: red">
+                                        <span class="rating-values"><span id="primary_rating_snap"></span> <span class="fa fa-star"
+                                                style="color: green"></span><span class="seprator"></span><span id="primary_rating_count_snap"></span> Ratings</span>
+                                    </div>
+                                    <center>
+                                        <p class="mt-2">
+                                            <s class="product-mrp">M.R.P: <span id="primary_mrp_snap"></span> </s>
+                                            <span class="product-price"
+                                                style="color: maroon; font-size: 20px;"><span id="primary_price_snap"></span></span>&nbsp;
+                                            <span class="product-discount" style="color: green">(<span id="primary_discount_snap"></span>)</span>
+                                        </p>
+                                    </center>
+                                    <br>
+                                    <br>
+                                    <hr>
+                                    <div class="product-offers" id="primary_offers_snap">
+                                        
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="no-deal-found" style="display: none; margin-top: 100px;">
-                            <img src="{% static 'images/no deal found illustration.png' %}" alt="" class="center">
-                            <div class="text mt-4">
-                                <p class="center">Oops! No deal Found.</p>
-                                <p class="center">Try adding another keyword.</p>
+                            <div class="no-deal-found" style="display: none; margin-top: 100px;">
+                                <img src="{% static 'images/no deal found illustration.png' %}" alt="" class="center">
+                                <div class="text mt-4">
+                                    <p class="center">Oops! No deal Found.</p>
+                                    <p class="center">Try adding another keyword.</p>
+                                </div>
+                            </div>
+                            <div class="loading" style="margin-top: 220px; margin-bottom: 380px;">
+                                <img class="center" height="40px" src="{% static 'images/loading.gif' %}"/>
                             </div>
                         </div>
-                        <div class="loading" style="margin-top: 220px; margin-bottom: 380px;">
-                            <img class="center" height="40px" src="{% static 'images/loading.gif' %}"/>
+                    </div>
+                    <!-- NO DEAL FOUND -->
+                    <!-- <div class="col-4 column deal">
+                        <div class="store-logo">
+                            <img src="{% static 'images/Amazon logo.png' %}" alt="amazon" class="amazon">
+                            <a href=""></a><img src="{% static 'images/change deal.svg' %}" alt="" class="change-deal"></a>
+                            <a href=""><i class="fa fa-close close-deal remove" style="font-size: 24px;"></i></a>
+                        </div>
+                        <div class="deal-data">
+                            <img src="{% static 'images/no deal found illustration.png' %}" alt="" class="center">
+                            <div class="text">
+                                <p class="center">Opps! No deal Found.</p>
+                                <p class="center">Try adding another keyword</p>
+                            </div>
                         </div>
                     </div>
+                    <div class="col-4 column deal">
+                        <div class="store-logo">
+                            <img src="{% static 'images/Flipkart logo.png' %}" alt="flipkart" class="flipkart">
+                            <a href=""></a><img src="{% static 'images/change deal.svg' %}" alt="" class="change-deal"></a>
+                            <a href=""><i class="fa fa-close close-deal remove" style="font-size: 24px;"></i></a>
+                        </div>
+                        <div class="deal-data">
+                            <img src="{% static 'images/no deal found illustration.png' %}" alt="" class="center">
+                            <div class="text">
+                                <p class="center">Opps! No deal Found.</p>
+                                <p class="center">Try adding another keyword</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 column deal">
+                        <div class="store-logo">
+                            <img src="{% static 'images/Myntra Logo.png' %}" alt="myntra" class="myntra">
+                            <a href=""></a><img src="{% static 'images/change deal.svg' %}" alt="" class="change-deal"></a>
+                            <a href=""><i class="fa fa-close close-deal remove" style="font-size: 24px;"></i></a>
+                        </div>
+                        <div class="deal-data">
+                            <img src="{% static 'images/no deal found illustration.png' %}" alt="" class="center">
+                            <div class="text">
+                                <p class="center">Opps! No deal Found.</p>
+                                <p class="center">Try adding another keyword</p>
+                            </div>
+                        </div>
+                    </div> -->
                 </div>
-                <!-- NO DEAL FOUND -->
-                <!-- <div class="col-4 column deal">
-                    <div class="store-logo">
-                        <img src="{% static 'images/Amazon logo.png' %}" alt="amazon" class="amazon">
-                        <a href=""></a><img src="{% static 'images/change deal.svg' %}" alt="" class="change-deal"></a>
-                        <a href=""><i class="fa fa-close close-deal remove" style="font-size: 24px;"></i></a>
-                    </div>
-                    <div class="deal-data">
-                        <img src="{% static 'images/no deal found illustration.png' %}" alt="" class="center">
-                        <div class="text">
-                            <p class="center">Opps! No deal Found.</p>
-                            <p class="center">Try adding another keyword</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4 column deal">
-                    <div class="store-logo">
-                        <img src="{% static 'images/Flipkart logo.png' %}" alt="flipkart" class="flipkart">
-                        <a href=""></a><img src="{% static 'images/change deal.svg' %}" alt="" class="change-deal"></a>
-                        <a href=""><i class="fa fa-close close-deal remove" style="font-size: 24px;"></i></a>
-                    </div>
-                    <div class="deal-data">
-                        <img src="{% static 'images/no deal found illustration.png' %}" alt="" class="center">
-                        <div class="text">
-                            <p class="center">Opps! No deal Found.</p>
-                            <p class="center">Try adding another keyword</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4 column deal">
-                    <div class="store-logo">
-                        <img src="{% static 'images/Myntra Logo.png' %}" alt="myntra" class="myntra">
-                        <a href=""></a><img src="{% static 'images/change deal.svg' %}" alt="" class="change-deal"></a>
-                        <a href=""><i class="fa fa-close close-deal remove" style="font-size: 24px;"></i></a>
-                    </div>
-                    <div class="deal-data">
-                        <img src="{% static 'images/no deal found illustration.png' %}" alt="" class="center">
-                        <div class="text">
-                            <p class="center">Opps! No deal Found.</p>
-                            <p class="center">Try adding another keyword</p>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </div>
     </div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal-1">
+        <div class="modal-content-1">
+            <div class="modal-header-1">
+                <div class="row">
+                    <div class="" style="margin-top: 30px; margin-left: 30px">
+                        <img src="{% static 'images/Amazon logo.png' %}" alt=""
+                            class="amazon mt-1"><span style="font-size: 25px"> - Change Deal</span>
+                    </div>
+                    <div class="search-change-deal">
+                        <form action="">
+                            <input type="text" name="" id="" class="search-input"
+                                placeholder="Search the URL">
+                            <span class="close">&times;</span>
+                        </form>
+                    </div>
+                </div>
+                <hr color="black">
+            </div>
+            <div class="modal-body-1">
+                <div class="row1" id="amazon-other">
+                    <!-- AMAZON OTHER DEALS -->
+                </div>
+            </div>
+        </div>
     </div>
-    <script src="{% static 'js/script.js' %}"></script>
-    <script src="{% static 'js/primary_deals.js' %}"></script>
-    <script src="{% static 'js/other_deals.js' %}"></script>
-    <script src="{% static 'js/script_flipkart_modal.js' %}"></script>
-    <script src="{% static 'js/script_snapdeal_modal.js' %}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-    </script>
+    <!-- The Modal -->
+    <div id="myModalF" class="modal-1">
+        <!-- Modal content -->
+        <div class="modal-content-1">
+            <div class="modal-header-1">
+                <div class="row">
+                    <div class="" style="margin-top: 30px; margin-left: 30px">
+                        <img src="{% static 'images/Flipkart logo.png' %}" alt="" class="flipkart"><span
+                            style="font-size: 25px"> - Change Deal</span>
+                    </div>
+                    <div class="search-change-deal">
+                        <form action="">
+                            <input type="text" name="" id="" class="search-input"
+                                placeholder="Search the URL">
+                            <span class="closeF">&times;</span>
+                        </form>
+                    </div>
+                </div>
+                <hr color="black">
+            </div>
+            <div class="modal-body-1">
+                <div class="row1" id="flipkart-other">
+                    <!-- FLIPKART OTHER DEALS -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- The Modal -->
+    <div id="myModalS" class="modal-1">
+        <!-- Modal content -->
+        <div class="modal-content-1">
+            <div class="modal-header-1">
+                <div class="row">
+                    <div class="" style="margin-top: 26px; margin-left: 30px">
+                        <img src="{% static 'images/snapdeal logo.png' %}" alt="" height="35px"><span
+                            style="font-size: 25px"> - Change Deal</span>
+                    </div>
+                    <div class="search-change-deal">
+                        <form action="">
+                            <input type="text" name="" id="" class="search-input"
+                                placeholder="Search the URL">
+                            <span class="closeS">&times;</span>
+                        </form>
+                    </div>
+                </div>
+                <hr color="black">
+            </div>
+            <div class="modal-body-1">
+                <div class="row1" id="snapdeal-other">
+                    <!-- SNAPDEAL OTHER DEALS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>
+<script src="{% static 'js/script.js' %}"></script>
+<script src="{% static 'js/primary_deals.js' %}"></script>
+<script src="{% static 'js/other_deals.js' %}"></script>
+<script src="{% static 'js/script_flipkart_modal.js' %}"></script>
+<script src="{% static 'js/script_snapdeal_modal.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+</script>

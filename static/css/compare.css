@@ -8,6 +8,7 @@
   }
   .navbar-top {
       box-shadow: 0 0.5rem 1rem -0.9rem rgba(0, 0, 0, 0.1);
+      z-index: -1;
   }
   /* Search bar in nav bar */
   .microphone {
@@ -58,8 +59,8 @@
   
   /* main section */
   .main {  
-    margin-left: 12%;
-    width: 100%;
+    width: 85%;
+    height: 100%;
     float: right;
   }
   
@@ -156,7 +157,7 @@
       margin-left: 7px;
   }
   .snapdeal {
-    height: 67px;
+    height: 60px;
     margin-top: -16px;
     margin-bottom: -5px;
     margin-left: 7px;
@@ -255,7 +256,8 @@
 .close-deal-btn img{
   height: 24px;
 }
-#stores{
+
+.sticky-top{
   position: sticky;
   top: 0;
 }
