@@ -9,7 +9,7 @@ $(document).ready(function() {
   $.ajax({
     url: 'data',
     type: 'get',
-    data: { search: 'gowns', store: 'flipkart', req_data: 'other'}
+    data: { search: search_item, store: 'flipkart', req_data: 'other'}
   })
   .done((res) => {
     console.log('Flipkart Other Deals Scrapped')
@@ -79,7 +79,7 @@ $(document).ready(function() {
   $.ajax({
     url: 'data',
     type: 'get',
-    data: { search: 'gowns', store: 'amazon', req_data: 'other'}
+    data: { search: search_item, store: 'amazon', req_data: 'other'}
   })
   .done((res) => {
     console.log('Amazon Other Deals Scraped')
@@ -157,7 +157,7 @@ $(document).ready(function() {
   $.ajax({
     url: 'data',
     type: 'get',
-    data: { search: 'gowns', store: 'snapdeal', req_data: 'other'}
+    data: { search: search_item, store: 'snapdeal', req_data: 'other'}
   })
   .done((res) => {
     console.log('Snapdeal Other Deals Scrapped')
