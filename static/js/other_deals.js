@@ -9,12 +9,11 @@ $(document).ready(function() {
   $.ajax({
     url: 'data',
     type: 'get',
-    data: { search: 'gowns', store: 'flipkart', req_data: 'other'}
+    data: { search: search_item, store: 'flipkart', req_data: 'other'}
   })
   .done((res) => {
     console.log('Flipkart Other Deals Scrapped')
     var data = JSON.parse(res.data);
-    console.log(data);
     var numOfKeys = Object.keys(data['Item URL']).length;
     console.log(numOfKeys);
 
@@ -79,15 +78,13 @@ $(document).ready(function() {
   $.ajax({
     url: 'data',
     type: 'get',
-    data: { search: 'gowns', store: 'amazon', req_data: 'other'}
+    data: { search: search_item, store: 'amazon', req_data: 'other'}
   })
   .done((res) => {
     console.log('Amazon Other Deals Scraped')
     var data = JSON.parse(res.data);
-    console.log(data);
     var numOfKeys = Object.keys(data['Item URL']).length;
     console.log(numOfKeys);
-
     for(var i=0;i<numOfKeys;i++) {
       var item = `
       <div class="column1">
@@ -157,13 +154,13 @@ $(document).ready(function() {
   $.ajax({
     url: 'data',
     type: 'get',
-    data: { search: 'gowns', store: 'snapdeal', req_data: 'other'}
+    data: { search: search_item, store: 'snapdeal', req_data: 'other'}
   })
   .done((res) => {
     console.log('Snapdeal Other Deals Scrapped')
     var data = JSON.parse(res.data);
     var numOfKeys = Object.keys(data['Item URL']).length;
-
+    console.log(numOfKeys);
     for(var i=0;i<numOfKeys;i++) {
       var item = `
       <div class="column1">

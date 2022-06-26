@@ -12,3 +12,18 @@ window.onclick = function (event) {
         modal.style.display = "none";
     }
 }
+function closeDeal(store){
+    $('.deal:has(' + '#' + store + '-primary)').hide();
+    $('#' + store + '-checkbox').prop('checked', false);
+}
+function toggleDeal(store){
+    const state = $('#' + store + '-checkbox').prop('checked')
+    $('#' + store + '-checkbox').prop('checked', !state);
+    if(state){
+        $('.deal:has(' + '#' + store + '-primary)').hide();
+    } else {
+        $('.deal:has(' + '#' + store + '-primary)').show();
+    }
+}
+
+

@@ -665,6 +665,8 @@ def amazon_other_deals(self, search):
     driver.get(url)
 
     result_items_divs = driver.find_elements(by=By.XPATH, value='//div[@data-component-type="s-search-result"]')
+    if len(result_items_divs) > 15:
+        result_items_divs = result_items_divs[0:15]
 
     title = []
     company = []
@@ -841,6 +843,9 @@ def snapdeal_other_deals(self, search):
     driver.get(url)
     rows = driver.find_elements(by=By.XPATH, value="//section[.//div[contains(@class,'product-tuple-listing')]]")
 
+    if len(rows) > 15:
+        rows = rows[0:15]
+        
     title = []
     image = []
     rating = []

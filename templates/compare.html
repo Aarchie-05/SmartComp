@@ -35,7 +35,7 @@
                 </ul>
                 <form class="form-inline my-2 my-lg-0 m-4 mr-4" action="/compare" method="get">
                     <div class="input-group">
-                        <input type="text" class="form-control search-bar" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1" name="search_item">
+                        <input type="text" id="search" class="form-control search-bar" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1" name="search_item">
                         <div class="input-group-prepend">
                             <button type="submit" style="border: none; background-color: transparent;">
                                 <span class="input-group-text google" id="basic-addon1">
@@ -56,9 +56,9 @@
                 <a href="#"><b>Store</b></a>
                 <form action="">
                     <div class="d-flex flex-column bd-highlight mb-3 ml-4">
-                        <div class="p-2 bd-highlight"><label><input type="checkbox"> Amazon</label></div>
-                        <div class="p-2 bd-highlight"><label><input type="checkbox"> Flipkart</label></div>
-                        <div class="p-2 bd-highlight"><label><input type="checkbox"> Snapdeal</label></div>
+                        <div class="p-2 bd-highlight"><label onclick="toggleDeal('amazon')"><input checked id="amazon-checkbox" type="checkbox"> Amazon</label></div>
+                        <div class="p-2 bd-highlight"><label onclick="toggleDeal('flipkart')"><input checked id="flipkart-checkbox" type="checkbox"> Flipkart</label></div>
+                        <div class="p-2 bd-highlight"><label onclick="toggleDeal('snapdeal')"><input checked id="snapdeal-checkbox" type="checkbox"> Snapdeal</label></div>
                     </div>
                 </form>
             </div>
@@ -72,7 +72,7 @@
                     <div class="col-4 column deal">
                         <div class="store-logo sticky-top">
                             <img src="{% static 'images/Amazon logo.png' %}" alt="amazon" class="amazon">
-                            <button class="close-deal-btn"><img src="{% static 'images/close.svg' %}"/></button>
+                            <button class="close-deal-btn" onclick="closeDeal('amazon')"><img src="{% static 'images/close.svg' %}"/></button>
                             <button id="myBtn" class="change-deal-btn"><img src="{% static 'images/change deal.svg' %}"
                                     alt=""></button>
                             
@@ -127,7 +127,7 @@
                     <div class="col-4 column deal">
                         <div class="store-logo sticky-top">
                             <img src="{% static 'images/Flipkart logo.png' %}" alt="flipkart" class="flipkart">
-                            <button class="close-deal-btn"><img src="{% static 'images/close.svg' %}"/></button>
+                            <button class="close-deal-btn" onclick="closeDeal('flipkart')"><img src="{% static 'images/close.svg' %}"/></button>
                             <button id="myBtnF" class="change-deal-btn"><img src="{% static 'images/change deal.svg' %}"
                                     alt=""></button>
                             <!-- <a href=""><i class="fa fa-close close-deal remove" style="font-size: 24px;"></i></a> -->
@@ -183,7 +183,7 @@
                     <div class="col-4 column deal">
                         <div class="store-logo sticky-top">
                             <img src="{% static 'images/snapdeal logo.png' %}" alt="snapdeal" class="myntra">
-                            <button class="close-deal-btn"><img src="{% static 'images/close.svg' %}"/></button>
+                            <button class="close-deal-btn" onclick="closeDeal('snapdeal')"><img src="{% static 'images/close.svg' %}"/></button>
                             <button id="myBtnS" class="change-deal-btn"><img src="{% static 'images/change deal.svg' %}"
                                     alt=""></button>
                             

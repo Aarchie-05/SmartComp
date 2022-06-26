@@ -3,7 +3,7 @@ $(document).ready(function() {
   var url_string = window.location.href;
   var url = new URL(url_string);
   var search_item = url.searchParams.get("search_item");
-
+  $("#search").prop('value', search_item);
   // Flipkart
   $.ajax({
     url: 'data',
