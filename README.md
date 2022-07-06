@@ -47,6 +47,9 @@ Activate the celery and redis servers by following commands:
          celery -A SmartComp worker -l info -P gevent
       </code>
    </p>
+   <p align="center">
+      <img alt="celery" width="" height="" src="https://github.com/Aarchie-05/SmartComp/blob/master/Screenshots/celery%20connection.PNG">
+   </p>
    
 To run the django application on the local server by running the following command on command prompt:
    <p>
@@ -54,8 +57,42 @@ To run the django application on the local server by running the following comma
          python manage.py runserver
       </code>
    </p>
+   <p align="center">
+      <img alt="celery" width="" height="" src="https://github.com/Aarchie-05/SmartComp/blob/master/Screenshots/Django%20server.PNG">
+   </p>
    
 Click on the link that will appear after running the command.
+
+
+## Application Images
+
+#### Best Deals
+<p align="center">
+      <img alt="1" width="" height="" src="https://github.com/Aarchie-05/SmartComp/blob/master/Screenshots/1.PNG">
+</p>
+
+#### Primary Deals
+<p align="center">
+      <img alt="2" width="" height="" src="https://github.com/Aarchie-05/SmartComp/blob/master/Screenshots/2.PNG">
+</p>
+
+#### Other Deals
+<p align="center">
+      <img alt="3" width="" height="" src="https://github.com/Aarchie-05/SmartComp/blob/master/Screenshots/3.PNG">
+</p>
+
+#### Primary Deals
+<p align="center">
+      <img alt="4" width="" height="" src="https://github.com/Aarchie-05/SmartComp/blob/master/Screenshots/4.PNG">
+</p>
+
+  
+  
+## Links
+
+1. [Project Report](https://github.com/Aarchie-05/SmartComp/blob/master/SmartComp%20Project%20Report.pdf)
+2. [Prensentation](https://github.com/Aarchie-05/SmartComp/blob/master/SmartComp.pptx)
+
 
    
    
