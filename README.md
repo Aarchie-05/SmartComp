@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-   A smart tool to compare and analyse prices and reviews of products across various e-commerce websites.
+   A smart tool to compare and analyse prices and reviews of products across various e-commerce websites..
 </p>
 
 
